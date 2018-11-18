@@ -1,0 +1,494 @@
+<!--
+  举头望涵涵，低头思第一。
+  主页由学神之女制作。
+  本页面只要此页即可。
+-->
+<!DOCTYPE html>
+<html lang="zh_CN">
+
+<head>
+  <!-- 网页信息配置。 -->
+  <meta charset="utf-8" />
+  <meta name="author" content="学神之女" />
+  <meta name="description" content="想知道这个页面有什么就进来看呀~" />
+  <meta name="keywords" content="学神之女, 学神网, 学神, Hi社, 学神录, 什么鬼" />
+  <meta name="viewport" content="width=device-width" />
+  <title>噢，什么鬼</title>
+  <!-- 搜索引擎验证 -->
+  <meta name="google-site-verification" content="yoigfLAK1jiGk2woTau9PMfvKgQWTgHk0gEwVeKqXRQ" />
+  <!-- CSS文件引入(CDN) -->
+  <link rel="stylesheet" href="./resources/css/mdui.min.css">
+  <!-- 页面内样式表文件 -->
+  <style>
+    .footer {
+      /*页脚样式，仿Google页脚*/
+      line-height: 40px;
+      background: #f2f2f2;
+      border-top: 1px solid #e4e4e4;
+      font-size: 10pt;
+      color: #222;
+    }
+
+    .footer text,
+    .footer a {
+      /*页脚链接和文字*/
+      margin-left: 30px;
+      color: #666;
+      display: inline-block;
+      line-height: 40px;
+      font-family: sans-serif;
+      font-size: 10pt;
+      margin-right: 30px;
+      text-decoration: none;
+    }
+
+    .footer>a:visited {
+      color: #609;
+    }
+
+    #banner {
+      /*横幅宽高和背景壁纸*/
+      background-image: url(https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1528621280389&di=9faeae0cb6c2220ded47fd332d36b090&imgtype=0&src=http%3A%2F%2Fpic1.win4000.com%2Fwallpaper%2F3%2F59476c1ab853c.jpg);
+        height: 50vh;
+      width: 100%;
+    }
+
+    .banner-title {
+      font-weight: 400;
+    }
+
+    .content-view {
+      padding-top: 64px;
+    }
+
+    /*body{
+          background-color: #f1f1f1;
+        }*/
+
+    .no-title-weight {
+      font-weight: 400;
+    }
+
+    .mdui-list-item-icon,
+    .mdui-list-item-content {
+      color: rgba(0, 0, 0, 0.54);
+    }
+
+    .happy-birthday {
+      width: 100%;
+      height: 50vh;
+      background-image: url(https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1528634936883&di=c93da104058cf00cec0a3950fadd6ecc&imgtype=0&src=http%3A%2F%2Fpic.90sjimg.com%2Fdesign%2F01%2F23%2F00%2F43%2Fs_1024_58c263b57da57.png);
+    }
+
+    .happy-birthday p {
+      display: block;
+    }
+
+    div[exam] {
+      height: 50vh;
+      background: rgba(23, 23, 23, 0.06);
+    }
+
+    ::selection {
+      background-color: pink;
+    }
+  </style>
+</head>
+
+<body>
+  <header id="appbar" class="mdui-appbar mdui-appbar-fixed">
+    <!-- 页面顶部加载条 -->
+    <div class="mdui-progress" id="preloader">
+      <div class="mdui-progress-indeterminate"></div>
+    </div>
+    <!-- 导航栏 -->
+    <div class="mdui-toolbar mdui-color-theme">
+      <button mdui-drawer="{target:'#sidebar',overlay:true,swipe:true}" mdui-tooltip="{content:'侧边栏'}" class="mdui-btn mdui-btn-icon mdui-ripple"><i
+          class="mdui-icon material-icons">menu</i></button>
+      <div class="mdui-typo-title" id="appbar-title">噢，什么鬼</div>
+      <div class="mdui-toolbar-spacer"></div>
+    </div>
+  </header>
+  <nav id="banner" class="mdui-container-fluid mdui-valign">
+    <h2 class="banner-title mdui-center mdui-text-color-theme">
+      举头望涵涵，低头思第一。
+    </h2>
+  </nav>
+  <div id="sidebar" class="mdui-drawer mdui-drawer-full-height mdui-drawer-close mdui-color-white">
+    <!-- 侧边栏 -->
+    <div>
+      <ul class="mdui-list">
+        <li class="mdui-subheader">我的网站</li>
+        <li class="mdui-list-item mdui-ripple" onclick="window.location.href='https://forum.dffzmxj.tk';">
+          <i class="mdui-list-item-icon mdui-icon material-icons">forum</i>
+          <div class="mdui-list-item-content">学神论坛</div>
+        </li>
+        <li class="mdui-list-item mdui-ripple" onclick="window.location.href='http://blogs.dffzmxj.tk';">
+          <i class="mdui-list-item-icon mdui-icon material-icons">library_books</i>
+          <div class="mdui-list-item-content">学神博客</div>
+        </li>
+        <li class="mdui-list-item mdui-ripple" onclick="window.location.href='https://www.dffzmxj.tk/ddnote'">
+          <i class="mdui-list-item-icon mdui-icon material-icons">note</i>
+          <div class="mdui-list-item-content">学神录</div>
+        </li>
+        <li class="mdui-subheader">GitHub</li>
+        <li class="mdui-list-item mdui-ripple" onclick="window.open('http://github.com/dffzmxj');">
+          <i class="mdui-list-item-icon mdui-icon material-icons">home</i>
+          <div class="mdui-list-item-content">GitHub个人主页</div>
+        </li>
+        <li class="mdui-list-item mdui-ripple" onclick="window.open('http://github.com/dffzmxj/hi-buluo');">
+          <i class="mdui-list-item-icon mdui-icon material-icons">store</i>
+          <div class="mdui-list-item-content">Hi社(正在开发)</div>
+        </li>
+        <li class="mdui-list-item mdui-ripple" onclick="window.open('http://github.com/dffzmxj/eaqJS');">
+          <i class="mdui-list-item-icon mdui-icon material-icons">code</i>
+          <div class="mdui-list-item-content">eaqJS</div>
+        </li>
+        <li class="mdui-subheader">推荐链接</li>
+        <li class="mdui-list-item mdui-ripple" onclick="window.open('https://user.qzone.qq.com/2477819731');">
+          <div class="mdui-list-item-avatar">
+            <img src="https://ss2.baidu.com/6ONYsjip0QIZ8tyhnq/it/u=1950309317,1466002371&fm=58&bpow=1024&bpoh=1024" />
+          </div>
+          <div class="mdui-list-item-content">QQ空间</div>
+        </li>
+        <li class="mdui-list-item mdui-ripple" onclick="window.location.href='mailto:dffzmxj@qq.com';">
+          <i class="mdui-list-item-avatar mdui-icon material-icons">mail</i>
+          <div class="mdui-list-item-content">Email我</div>
+        </li>
+        <li class="mdui-list-item mdui-ripple" onclick="window.open('http://www.mdui.org')" mdui-tooltip="{content:'本网站连接不稳定，如无法访问请过会刷新'}">
+          <div class="mdui-list-item-avatar">M</div>
+          <div class="mdui-list-item-content">MDUI</div>
+        </li>
+        <li class="mdui-subheader">其它选项</li>
+        <li class="mdui-list-item mdui-ripple" onclick="window.location.href='http://www.dffzmxj.tk/game';">
+          <i class="mdui-list-item-icon mdui-icon material-icons">favorite</i>
+          <div class="mdui-list-item-content">本站的彩蛋</div>
+        </li>
+        <li class="mdui-list-item mdui-ripple" onclick="theme()">
+          <i class="mdui-list-item-icon mdui-icon material-icons">color_lens</i>
+          <div class="mdui-list-item-content mdui-text-color-theme-accent">随机主题</div>
+        </li>
+        <li class="mdui-list-item mdui-ripple" onclick="window.location.href='https://forum.dffzmxj.tk/t/reporting-suggestion';">
+          <i class="mdui-list-item-icon mdui-icon material-icons">report</i>
+          <div class="mdui-list-item-content">反馈建议</div>
+        </li>
+        <li class="mdui-list-item mdui-ripple mdui-hidden-sm-up" onclick="window.location.href='/english.html';">
+          <i class="mdui-list-item-icon mdui-icon material-icons">language</i>
+          <div class="mdui-list-item-content">English Site</div>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div id="shadow-line">
+    <!-- 当浏览器划过此处时，自动给导航栏加入阴影 -->
+  </div>
+  <!-- 庆祝涵涵的生日 -->
+  <div class="mdui-container-fluid" id="happy-birthday">
+    <div class="mdui-row">
+      <div class="happy-birthday mdui-col-xs-12 mdui-row">
+        <div class="mdui-row">
+          <div class="mdui-col-xs-12 mdui-valign">
+            <p class="mdui-center mdui-typo-display-3"><span class="mdui-text-color-blue">生</span><span class="mdui-text-color-red">日</span><span
+                class="mdui-text-color-yellow">快</span><span class="mdui-text-color-blue">乐</span><span class="mdui-text-color-green">，涵</span><span
+                class="mdui-text-color-red">涵！</span></p>
+          </div>
+          <div class="mdui-col-xs-12 mdui-valign">
+            <p class="mdui-center mdui-typo-headline-opacity">知道吗？<abbr mdui-tooltip="{content:'6月12日'}">今天</abbr>是你的生日。希望你今天过得开心。永远和快乐做伴！</p>
+          </div>
+          <div class="mdui-col-xs-12 mdui-hidden-md-up">
+            <i class="mdui-center mdui-icon material-icons mdui-text-color-amber mdui-typo-display-2">cake</i>
+          </div>
+          <div class="mdui-col-xs-12 mdui-hidden-md-up">
+            <div class="mdui-center mdui-text-center mdui-text-color-amber mdui-typo-display-2">
+              6月12日
+            </div>
+          </div>
+          <div class="mdui-col-xs-6 mdui-hidden-sm-down">
+            <i class="mdui-float-right mdui-p-r-2 mdui-icon material-icons mdui-text-color-amber mdui-typo-display-2">cake</i>
+          </div>
+          <div class="mdui-col-xs-6 mdui-hidden-sm-down">
+            <div class="mdui-float-left mdui-p-l-2 mdui-text-color-amber mdui-typo-display-2">
+              6月12日
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <main class="content-view mdui-container">
+    <!--尬聊-->
+    <div class="mdui-card">
+      <div class="mdui-card-primary">
+        <div class="mdui-card-primary-title">震惊！本站站长竟然是个初一学生！究竟是道德的沦丧还是人性的扭曲？男人看完了沉默女人看完了流泪！</div>
+        <div class="mdui-card-primary-subtitle">学神之女</div>
+      </div>
+      <div class="mdui-card-content mdui-typo">
+        <p>本站站长是学神之女。</p>
+        <h2>学神之女是谁？能吃吗？好吃吗？</h2>
+        <p>
+          本站的站长。能吃，不好吃，而且一生只能吃一次。
+        </p>
+        <p>
+          不开玩笑了。学神之女，真名<span style="background:black;color:black;">我怎么会告诉你我自己的真名</span>。生于2004年12月5日，今（2018年11月18日）13岁。某不知名中学的一个初一生。
+        </p>
+        <h2>她都做了什么？</h2>
+      </div>
+      <ul class="mdui-list">
+        <li class="mdui-list-item">
+          <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-red">forum</i>
+          <span class="mdui-list-item-content mdui-text-color-red"><strong>论坛：</strong>言论不自由，限制极不少，随时随地分享你的Good idea！</span>
+        </li>
+        <li class="mdui-list-item">
+          <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-orange">library_books</i>
+          <span class="mdui-list-item-content mdui-text-color-orange"><strong>博客：</strong>不定期文章，同样，你也可以加入创作~一起创作一起have
+            fun！</span>
+        </li>
+        <li class="mdui-list-item">
+          <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-yellow">note</i>
+          <span class="mdui-list-item-content mdui-text-color-yellow"><strong>学神录：</strong>小学时光已经结束，害怕就此不再联系？不要怕，赶紧在这里留下你的同学录吧！</span>
+        </li>
+        <li class="mdui-list-item">
+          <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-green">store</i>
+          <span class="mdui-list-item-content mdui-text-color-green"><strong>Hi社：</strong>使用PHP自主开发的全新社区，界面漂亮，功能齐全！</span>
+        </li>
+        <li class="mdui-list-item">
+          <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-blue">school</i>
+          <span class="mdui-list-item-content mdui-text-color-blue"><strong>考试：</strong>终于得到了全班第一！</span>
+        </li>
+      </ul>
+      <div class="mdui-card-content mdui-typo">
+        <p>
+          注：论坛、博客、学神录由于主机和域名问题暂不开放；Hi社由于正在开发无法使用。
+        </p>
+        <h2>我要查她水表，怎么办？</h2>
+        <p>
+          OICQ：2477819731 电邮：<a href="mailto:white008@outlook.com">white008@outlook.com</a> <a href="mailto:dffzmxj@qq.com">dffzmxj@qq.com</a>
+          <a href="mailto:dffzmxj2@gmail.com">dffzmxj2@gmail.com</a>
+        </p>
+      </div>
+    </div>
+    <div class="mdui-row mdui-m-t-4">
+      <div class="mdui-col-xs-12 mdui-container-fluid">
+        <!-- 玩法列表 -->
+        <div class="mdui-row">
+          <!-- 博客精选 -->
+          <div class="mdui-col-xs-12 mdui-col-md-6 mdui-col-lg-4">
+            <div class="mdui-card">
+              <div class="mdui-card-primary">
+                <div class="mdui-card-primary-title">博客精选</div>
+                <div class="mdui-card-primary-subtitle">不错的文章。</div>
+              </div>
+              <div class="mdui-list">
+                <a href="http://blogs.dffzmxj.tk/2018/05/06/js-convert-json-to-get-rq-sorry-server-not-understand-json/"
+                  target="_blank" class="mdui-list-item mdui-ripple">JavaScript将JSON转换为GET请求字符串</a>
+                <a href="http://blogs.dffzmxj.tk/2018/04/06/convert-sec-to-min-day-with-js-only-sec-made-me-hurt/"
+                  class="mdui-list-item mdui-ripple" target="_blank">JavaScript将秒转换为分钟、小时、天</a>
+                <a href="http://blogs.dffzmxj.tk/2018/02/11/c-plus-table-generator/" class="mdui-list-item mdui-ripple"
+                  target="_blank">C语言生成乘法表程序</a>
+                <a href="http://blogs.dffzmxj.tk/2018/01/22/grade-6-pinshe-materials/" class="mdui-list-item mdui-ripple"
+                  target="_blank">六年级品社试题</a>
+              </div>
+            </div>
+          </div>
+          <!-- 移动端间隔20像素 -->
+          <div class="mdui-hidden-md-up mdui-col-xs-12" style="height:20px;"></div>
+          <!-- 恶搞天气预报 -->
+          <div class="mdui-col-xs-12 mdui-col-md-6 mdui-col-lg-4">
+            <div class="mdui-card">
+              <div class="mdui-card-primary">
+                <div class="mdui-card-primary-title">全球天气预报</div>
+                <div class="mdui-card-primary-subtitle">今天天气是冷是热？</div>
+              </div>
+              <ul class="mdui-list">
+                <li class="mdui-list-item mdui-ripple">
+                  <i class="mdui-list-item-icon mdui-icon material-icons">date_range</i>
+                  <div class="mdui-list-item-content" id="weatherDate">2019年2月31日</div>
+                </li>
+                <li class="mdui-list-item mdui-ripple">
+                  <i class="mdui-list-item-icon mdui-icon material-icons">ac_unit</i>
+                  <div class="mdui-list-item-content" id="weatherInfo">NaN℃ ~ NaN℃ 无天气</div>
+                </li>
+                <li class="mdui-list-item mdui-ripple">
+                  <i class="mdui-list-item-icon mdui-icon material-icons">wb_sunny</i>
+                  <div class="mdui-list-item-content" id="weatherSun">CP指数：NaN 红指数：NaN 蓝指数：NaN</div>
+                </li>
+                <li class="mdui-list-item mdui-ripple">
+                  <i class="mdui-list-item-icon mdui-icon material-icons">wb_cloudy</i>
+                  <div class="mdui-list-item-content" id="weatherAir">PM250：NaN 不透明度：NaN</div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <!-- 移动端间隔20像素 -->
+          <div class="mdui-hidden-md-up mdui-col-xs-12" style="height:20px;"></div>
+          <!-- 捷报 -->
+          <div class="mdui-col-xs-12 mdui-col-md-6 mdui-col-lg-4">
+            <div class="mdui-card">
+              <div class="mdui-card-primary">
+                <span class="mdui-card-primary-title">捷报</span>
+                <span class="mdui-card-primary-subtitle">记录时下最火热的事件！</span>
+              </div>
+              <ul class="mdui-list">
+                <li class="mdui-list-item mdui-ripple">
+                  <i class="mdui-list-item-icon mdui-text-color-red mdui-icon material-icons">whatshot</i>
+                  <span class="mdui-list-item-content mdui-text-color-red">学神之女新主页上线！</span>
+                </li>
+                <li class="mdui-list-item mdui-ripple">
+                  <i class="mdui-list-item-icon mdui-text-color-orange mdui-icon material-icons">whatshot</i>
+                  <span class="mdui-list-item-content mdui-text-color-orange">DDNote可以访问了！</span>
+                </li>
+                <li class="mdui-list-item mdui-ripple">
+                  <i class="mdui-list-item-icon mdui-text-color-amber mdui-icon material-icons">whatshot</i>
+                  <span class="mdui-list-item-content mdui-text-color-amber">学神论坛APP已上线！</span>
+                </li>
+                <li class="mdui-list-item mdui-ripple">
+                  <i class="mdui-list-item-icon mdui-text-color-green mdui-icon material-icons">whatshot</i>
+                  <span class="mdui-list-item-content mdui-text-color-green">学神博客使用了全新主题！</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mdui-col-xs-12 mdui-valign">
+        <!-- 记录您在本页访问了多久 -->
+        <h2 class="mdui-center no-title-weight">您已在本页浪费了<span class="mdui-text-color-theme-accent" id="timeOfViewed"></span>。</h1>
+      </div>
+    </div>
+  </main>
+  <footer class="footer">
+    <!-- 页脚信息 -->
+    <text>&copy;2018学神之女拥有所有版权。</text>
+    <a class="mdui-hidden-xs mdui-float-right" href="./english.html">English Site</a>
+  </footer>
+  <!-- 隐藏的页面组件，如音乐播放器、网站统计。 -->
+  <div id="hidden" class="mdui-hidden"></div>
+  <!-- JavaScript文件引入(CDN) -->
+  <script src="./resources/js/mdui.min.js"></script>
+  <!-- 页面内JavaScript文件 -->
+  <script>
+    /*
+     * 我之所以把JS嵌入到这里是因为……我不想一次上传那么多文件。
+    **/
+    //jQuery废了，用MDUI代替
+    var $ = mdui.JQ;
+    console.log("%c请注意，本站并未采用jQuery！", "font-size:16px;color:#f44336;");
+    //时间转换函数改良版。
+    function fromSeconds(second = 3600, to_text = false, hidden_detail = false, _time = [{ name: "second", last: 1, text: "秒" }, { name: "minute", last: 60, text: "分钟" }, { name: "hour", last: 60, text: "小时" }, { name: "day", last: 24, text: "天" }, { name: "month", last: 30, text: "月" }, { name: "year", last: 12, text: "年" }], now = "0秒") {
+      //将秒换算为其它时间单位
+      let result = {};
+      if (to_text) result._text = "";
+      for (let i = 0; i < _time.length; i++) {
+        result[_time[i].name] = parseInt(!i ? second : result[_time[i - 1].name] / _time[i].last);
+        if (i) result[_time[i - 1].name] = parseInt(result[_time[i - 1].name] % _time[i].last);
+      }
+      for (let i = _time.length - 1; i >= 0; i = i - 1) {
+        if (to_text && !hidden_detail) {
+          //显示文字结果
+          if (result[_time[i].name] != 0) result._text = result._text + result[_time[i].name] + _time[i].text;
+        }
+      }
+      if (to_text && hidden_detail) for (let i = _time.length - 1; i >= 0; i = i - 1) {
+        if (result[_time[i].name] == 0) continue;
+        else {
+          result._text = result[_time[i].name] + _time[i].text;
+          break;
+        }
+        if (result._text == "" && i == 0) result._text = now;
+      }
+      return result;
+    }
+    //var divider=$("#shadow-line").offset().top;
+    $(".mdui-list-item-icon").css("color", "rgba(0,0,0,0.54)");//强制修改列表图标颜色。
+    /*$.event.add(window,"scroll",()=>{
+      //检测是否给导航栏加入阴影和标题。
+      if($(window).scrollTop()+$("#appbar").height()>divider){
+        $("#appbar .mdui-toolbar").addClass("mdui-color-theme");
+        $("#appbar").removeClass("mdui-shadow-0");
+      }else{
+        $("#appbar .mdui-toolbar").removeClass("mdui-color-theme");
+        $("#appbar").addClass("mdui-shadow-0");
+      }
+      由于废除了jQuery，所以无法使用。
+    });*/
+    //随机切换主题。
+    var defaultTheme = ["teal", "pink"];//默认主题
+    //初始化主题。
+    $("body").addClass("mdui-theme-primary-" + defaultTheme[0]);
+    $("body").addClass("mdui-theme-accent-" + defaultTheme[1]);
+    var themesPrimary = ["red", "pink", "purple", "deep-purple", "indigo", "blue", "light-blue", "cyan", "teal", "green", "light-green", "lime", "yellow", "amber", "orange", "deep-orange", "brown", "grey", "blue-grey"];//主色列表
+    var themesAccent = ["red", "pink", "purple", "deep-purple", "indigo", "blue", "light-blue", "cyan", "teal", "green", "light-green", "lime", "yellow", "amber", "orange", "deep-orange"];//强调色列表
+    var theme = () => {
+      //随即切换主题函数。
+      $("body").removeClass("mdui-theme-primary-" + defaultTheme[0]);//移除旧主题。
+      $("body").removeClass("mdui-theme-accent-" + defaultTheme[1]);
+      defaultTheme = [
+        themesPrimary[Math.round(Math.random() * (themesPrimary.length - 1))],
+        themesAccent[Math.round(Math.random() * (themesAccent.length - 1))]
+      ];
+      $("body").addClass("mdui-theme-primary-" + defaultTheme[0]);
+      $("body").addClass("mdui-theme-accent-" + defaultTheme[1]);
+    }
+    if (!localStorage.timeViewed) localStorage.timeViewed = 0;
+    $("#timeOfViewed").html(fromSeconds(localStorage.timeViewed, 1)._text);
+    setInterval(() => $("#timeOfViewed").html(fromSeconds((localStorage.timeViewed = parseInt(localStorage.timeViewed) + 1), 1)._text), 1000);
+    var srand = seed => (seed * 9301 + 49297) % 233280 / (233280.0);//随机数种子算法。
+    //恶搞天气预报算法。
+    (weather = (dt = new Date()) => {//开发者选项：自定义日期调试。
+      var Today = Date.parse(dt) / 1000 | 0;//获取当前时间戳。
+      Today = Math.round(Today / (60 * 60 * 24));//精度控制在24小时。
+      Today = srand(Today);//获取今日天气种子。
+      $("#weatherDate").html((dt.getFullYear()) + "年" + (dt.getMonth() + 1) + "月" + (dt.getDate()) + "日");//设置日期。
+      var weathers = ["晴", "多云", "阴", "小雨", "中雨", "大雨", "小雪", "中雪", "大雪", "扬沙"];//天气列表。
+      $("#weatherInfo").html("-" + (Today * 273.15 | 0) + "℃ ~ " + (Today * 0x7FFF | 0) + "℃ " + weathers[Math.round(Today * (weathers.length - 1))]);//设置天气温度。
+      $("#weatherSun").html("CP指数：" + ((Today * 0xAFF | 0) ^ (Today * 0xBFF | 0)) + " 红指数：" + (Today + 0xAFF | 0) + " 蓝指数：" + (Today * 0xBFF | 0));//设置太阳光指数。
+      $("#weatherAir").html("PM250：" + (Today * 0xC4AC | 0) + " 不透明度：" + ((Today * 1000 | 0) / 1000));//设置空气指数。
+      return {
+        stamp: Today,
+        date: dt,
+        weather: weathers[Math.round(Today * (weathers.length - 1))],
+        info: {
+          max: Today * 0x7FFF | 0,
+          min: (Today * 273.15 | 0) * (-1)
+        },
+        sun: {
+          cp: (Today * 0xAFF | 0) ^ (Today * 0xBFF | 0),
+          red: Today + 0xAFF | 0,
+          blue: Today * 0xBFF | 0
+        },
+        air: {
+          pm250: Today * 0xC4AC | 0,
+          opacity: (Today * 1000 | 0) / 1000
+        }
+      };
+    })();
+    $(document).ready(() => {
+      $("#preloader").addClass("mdui-hidden");//加载完成时移除加载条。
+      mdui.snackbar("站长无法正常活跃。", {
+        buttonText: "了解详细",
+        onButtonClick: function () {
+          mdui.dialog({
+            title: "站长无法正常活跃",
+            content: "非常抱歉，本站长由于可能以下原因导致无法正常活跃：<ul><li>站长过气了</li><li>站长不和谐</li><li>站长是头山猪</li><li>作业战胜了站长</li></ul><footer>学神之女网(DFFZMXJ Website)</footer>",
+            buttons: [
+              {
+                text: "Get it"
+              }
+            ]
+          });
+        }
+      });
+    });
+    (() => {
+      //如果是6月12日，自动播放生日歌。
+      var Dt = new Date();
+      if ((Dt.getMonth() == 5) && (Dt.getDate() == 12))
+        $("#hidden").append('<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=5279993&auto=1&height=66"></iframe>');
+      if ((Dt.getMonth() == 5 && Dt.getDate() - 12 == 0)) {
+        console.log("%c生%c日%c快%c乐%c，涵%c涵！", "font-size:56px;font-weight:400;color:#2196f3;", "font-size:56px;font-weight:400;color:#f44336;", "font-size:56px;font-weight:400;color:#ffeb3b;", "font-size:56px;font-weight:400;color:#2196f3;", "font-size:56px;font-weight:400;color:#4caf50;", "font-size:56px;font-weight:400;color:#f44336;");//控制台庆祝生日。
+      } else $("#happy-birthday").addClass("mdui-hidden");//如果离生日较远，隐藏庆祝横幅。
+    })();
+  </script>
+</body>
+
+</html>

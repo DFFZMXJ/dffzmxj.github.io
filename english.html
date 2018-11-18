@@ -1,0 +1,476 @@
+<!--
+  Look up for Hanhan, think down for the first.
+  Home page made by Goddess of Learning.
+  This page needed this page only.
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Web page mainfest config. -->
+  <meta charset="utf-8" />
+  <meta name="author" content="Goddess of Learning" />
+  <meta name="description" content="Look up for Hanhan, think down for the first. This website is worth to visit for you(￣▽￣)" />
+  <meta name="keywords" content="Goddess of Learning, Goddess Site, God of Learning, eaqJS, DDNote" />
+  <meta name="viewport" content="width=device-width" />
+  <title>Oh, what's this?</title>
+  <!-- Search engine verification -->
+  <meta name="google-site-verification" content="yoigfLAK1jiGk2woTau9PMfvKgQWTgHk0gEwVeKqXRQ" />
+  <!-- include CSS stylesheet file (CDN) -->
+  <link rel="stylesheet" href="resources/css/mdui.min.css">
+  <!-- Stylesheet file for the page -->
+  <style>
+    .footer {
+      /*Foor style, looks like Google's footer.*/
+      line-height: 40px;
+      background: #f2f2f2;
+      border-top: 1px solid #e4e4e4;
+      font-size: 10pt;
+      color: #222;
+    }
+
+    .footer text,
+    .footer a {
+      /*Footer's texts and links*/
+      margin-left: 30px;
+      color: #666;
+      display: inline-block;
+      line-height: 40px;
+      font-family: sans-serif;
+      font-size: 10pt;
+      margin-right: 30px;
+      text-decoration: none;
+    }
+
+    .footer>a:visited {
+      color: #609;
+    }
+
+    #banner {
+      /*Banner's width, height and the background*/
+      background-image: url(https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1528621280389&di=9faeae0cb6c2220ded47fd332d36b090&imgtype=0&src=http%3A%2F%2Fpic1.win4000.com%2Fwallpaper%2F3%2F59476c1ab853c.jpg);
+      height: 300px;
+      width: 100%;
+    }
+
+    .banner-title {
+      font-weight: 400;
+    }
+
+    .content-view {
+      padding-top: 52px;
+    }
+
+    /*body{
+          background-color: #f1f1f1;
+        }*/
+
+    .no-title-weight {
+      font-weight: 400;
+    }
+
+    .mdui-list-item-icon,
+    .mdui-list-item-content {
+      color: rgba(0, 0, 0, 0.54);
+    }.happy-birthday {
+      width:100%;
+      height:500px;
+      background-image: url(https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1528634936883&di=c93da104058cf00cec0a3950fadd6ecc&imgtype=0&src=http%3A%2F%2Fpic.90sjimg.com%2Fdesign%2F01%2F23%2F00%2F43%2Fs_1024_58c263b57da57.png);
+    }
+    .happy-birthday p{
+      display: block;
+    }
+    div[exam]{
+      height:400px;
+      background: rgba(23,23,23,0.06);
+    }
+  </style>
+</head>
+
+<body class="mdui-theme-primary-cyan mdui-theme-accent-pink">
+  <header id="appbar" class="mdui-appbar mdui-appbar-fixed mdui-color-theme">
+    <!-- The pre-loading progress on the top of the page -->
+    <div class="mdui-progress" id="preloader">
+      <div class="mdui-progress-indeterminate"></div>
+    </div>
+    <!-- Navigation bar -->
+    <div class="mdui-toolbar">
+      <button mdui-drawer="{target:'#sidebar',overlay:true,swipe:true}" mdui-tooltip="{content:'Side bar'}" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon material-icons">menu</i></button>
+      <div class="mdui-typo-title" id="appbar-title">Oh, what's this?</div>
+      <div class="mdui-toolbar-spacer"></div>
+      <button onclick="window.location.reload()" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon material-icons">refresh</i></button>
+    </div>
+  </header>
+  <nav id="banner" class="mdui-container-fluid mdui-valign">
+    <h2 class="banner-title mdui-center mdui-text-color-theme-accent">
+            Look up for Hanhan, think down for the first.
+          </h2>
+  </nav>
+  <div id="sidebar" class="mdui-drawer mdui-drawer-full-height mdui-drawer-close mdui-color-white">
+    <!-- Side bar. -->
+    <div>
+      <ul class="mdui-list">
+        <li class="mdui-subheader">My Websites</li>
+        <li class="mdui-list-item mdui-ripple" onclick="window.location.href='https://forum.dffzmxj.tk';">
+          <i class="mdui-list-item-icon mdui-icon material-icons">forum</i>
+          <div class="mdui-list-item-content">Goddess Forum</div>
+        </li>
+        <li class="mdui-list-item mdui-ripple" onclick="window.location.href='http://blogs.dffzmxj.tk';">
+          <i class="mdui-list-item-icon mdui-icon material-icons">library_books</i>
+          <div class="mdui-list-item-content">Goddess Blogs</div>
+        </li>
+        <li class="mdui-list-item mdui-ripple" onclick="window.location.href='https://www.dffzmxj.tk/ddnote'">
+          <i class="mdui-list-item-icon mdui-icon material-icons">note</i>
+          <div class="mdui-list-item-content">DDNote</div>
+        </li>
+        <li class="mdui-subheader">GitHub</li>
+        <li class="mdui-list-item mdui-ripple" onclick="window.open('http://github.com/dffzmxj');">
+          <i class="mdui-list-item-icon mdui-icon material-icons">home</i>
+          <div class="mdui-list-item-content">GitHub Personal Profile</div>
+        </li>
+        <li class="mdui-list-item mdui-ripple" onclick="window.open('http://github.com/dffzmxj/hi-buluo');">
+          <i class="mdui-list-item-icon mdui-icon material-icons">store</i>
+          <div class="mdui-list-item-content">Hi Buluo (Developmenting)</div>
+        </li>
+        <li class="mdui-list-item mdui-ripple" onclick="window.open('http://github.com/dffzmxj/eaqJS');">
+          <i class="mdui-list-item-icon mdui-icon material-icons">code</i>
+          <div class="mdui-list-item-content">eaqJS</div>
+        </li>
+        <li class="mdui-subheader">Recommed Links</li>
+        <li class="mdui-list-item mdui-ripple" onclick="window.open('https://user.qzone.qq.com/2477819731');">
+          <div class="mdui-list-item-avatar">
+            <img src="https://ss2.baidu.com/6ONYsjip0QIZ8tyhnq/it/u=1950309317,1466002371&fm=58&bpow=1024&bpoh=1024" />
+          </div>
+          <div class="mdui-list-item-content">QQ Zone</div>
+        </li>
+        <li class="mdui-list-item mdui-ripple" onclick="window.location.href='mailto:white008@outlook.com';">
+          <i class="mdui-list-item-icon mdui-icon material-icons">mail</i>
+          <div class="mdui-list-item-content">Email me</div>
+        </li>
+        <li class="mdui-list-item mdui-ripple" onclick="window.open('http://www.mdui.org')" mdui-tooltip="{content:'This website isn\'t good, refresh later if you could not access the page.'}">
+          <div class="mdui-list-item-avatar">M</div>
+          <div class="mdui-list-item-content">MDUI</div>
+        </li>
+        <li class="mdui-subheader">Other</li>
+        <li class="mdui-list-item mdui-ripple" onclick="window.location.href='http://www.dffzmxj.tk/game';">
+          <i class="mdui-list-item-icon mdui-icon material-icons">favorite</i>
+          <div class="mdui-list-item-content">Easter Egg</div>
+        </li>
+        <li class="mdui-list-item mdui-ripple" onclick="theme()">
+          <i class="mdui-list-item-icon mdui-icon material-icons">color_lens</i>
+          <div class="mdui-list-item-content mdui-text-color-theme-accent">Random Theme</div>
+        </li>
+        <li class="mdui-list-item mdui-ripple" onclick="window.location.href='https://forum.dffzmxj.tk/t/reporting-suggestion';">
+          <i class="mdui-list-item-icon mdui-icon material-icons">report</i>
+          <div class="mdui-list-item-content">Report Suggestions</div>
+        </li>
+        <li class="mdui-list-item mdui-ripple mdui-hidden-sm-up" onclick="window.location.href='/';">
+          <i class="mdui-list-item-icon mdui-icon material-icons">language</i>
+          <div class="mdui-list-item-content">中文网站</div>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div id="shadow-line">
+    <!-- Add shadows to navigation bar when browsed here automactically. -->
+  </div>
+  <!-- Happy birthday for Little Hanhan! -->
+  <div class="mdui-container-fluid" id="happy-birthday">
+    <div class="mdui-row">
+      <div class="happy-birthday mdui-col-xs-12 mdui-row">
+        <div class="mdui-row">
+          <div class="mdui-col-xs-12 mdui-valign">
+            <p class="mdui-center mdui-typo-display-3"><span class="mdui-text-color-blue">Hap</span><span class="mdui-text-color-red">py</span><span class="mdui-text-color-yellow"> birth</span><span class="mdui-text-color-blue">day</span><span class="mdui-text-color-green">, Little</span><span class="mdui-text-color-red"> Hanhan!</span></p>
+          </div>
+          <div class="mdui-col-xs-12 mdui-valign">
+            <p class="mdui-center mdui-typo-headline-opacity">Do you know?<abbr mdui-tooltip="{content:'June 12th'}"> Today</abbr> is your birthday. Wish you have fun today! Be a good friend with happy forever!</p>
+          </div>
+          <div class="mdui-col-xs-12 mdui-hidden-md-up">
+            <i class="mdui-center mdui-icon material-icons mdui-text-color-amber mdui-typo-display-2">cake</i>
+          </div>
+          <div class="mdui-col-xs-12 mdui-hidden-md-up">
+            <div class="mdui-center mdui-text-center mdui-text-color-amber mdui-typo-display-2">
+              June 12th
+            </div>
+          </div>
+          <div class="mdui-col-xs-6 mdui-hidden-sm-down">
+            <i class="mdui-float-right mdui-p-r-2 mdui-icon material-icons mdui-text-color-amber mdui-typo-display-2">cake</i>
+          </div>
+          <div class="mdui-col-xs-6 mdui-hidden-sm-down">
+            <div class="mdui-float-left mdui-p-l-2 mdui-text-color-amber mdui-typo-display-2">
+              June 12th
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <main class="content-view mdui-container">
+    <!--A shame discussion-->
+    <div class="mdui-card">
+        <div class="mdui-card-primary">
+          <div class="mdui-card-primary-title">SHOCKED! UNEXPECTEDLY THIS WEBSITE'S OWNER IS A STUDENT IN GRADE 7! IS IT THE PROBLEM IN THE WORLD OR ON HUMANS? AFTER READING, MEN BECAME SILENT AND WOMEN CRIED!</div>
+          <div class="mdui-card-primary-subtitle">DFFZMXJ</div>
+        </div>
+        <div class="mdui-card-content mdui-typo">
+          <p>DFFZMXJ is the owner of this website.</p>
+          <h2>Who is DFFZMXJ? Is she able to eat? Is she delicious?</h2>
+          <p>
+            This website's owner. You can eat her, not delicious, and you can eat only once in your life.
+          </p>
+          <p>
+            OK. DFFZMXJ, realname <span style="background:black;color:black;">How is that possible of I tell you my realname?</span>. Born on Dec. 5 in 2004. 13 years old this yaer. A grade 7 student in an anonymous school.
+          </p>
+          <h2>What did she do?</h2>
+        </div>
+        <ul class="mdui-list">
+          <li class="mdui-list-item">
+            <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-red">forum</i>
+            <span class="mdui-list-item-content mdui-text-color-red"><strong>Forum: </strong>Not free on talking, Not less rules, share your 好主意 everywhere.</span>
+          </li>
+          <li class="mdui-list-item">
+            <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-orange">library_books</i>
+            <span class="mdui-list-item-content mdui-text-color-orange"><strong>Blog: </strong>Provide nice articles for you, also you can join to create.</span>
+          </li>
+          <li class="mdui-list-item">
+            <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-yellow">note</i>
+            <span class="mdui-list-item-content mdui-text-color-yellow"><strong>DDNote: </strong>I'm lazy to translate here.</span>
+          </li>
+          <li class="mdui-list-item">
+            <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-green">store</i>
+            <span class="mdui-list-item-content mdui-text-color-green"><strong>Hi Buluo: </strong>A completely new cumminity programmed in PHP. Beautiful and powerful.</span>
+          </li>
+          <li class="mdui-list-item">
+            <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-blue">school</i>
+            <span class="mdui-list-item-content mdui-text-color-blue"><strong>Exam: </strong>Finally I got the first! ( •̀ ω •́ )y</span>
+          </li>
+        </ul>
+        <div class="mdui-card-content mdui-typo">
+          <p>
+            PS: Blog, forum and DDNote are unavailable because of host; Hi Buluo is unusable because it's in developing.
+          </p>
+          <h2>I wanna kill her, how to do?</h2>
+          <p>
+            OICQ: 2477819731 Email: <a href="mailto:white008@outlook.com">white008@outlook.com</a> <a href="mailto:dffzmxj@qq.com">dffzmxj@qq.com</a>
+            <a href="mailto:dffzmxj2@gmail.com">dffzmxj2@gmail.com</a>
+          </p>
+        </div>
+      </div>
+    <div class="mdui-row mdui-m-t-4">
+      <div class="mdui-col-xs-12 mdui-container-fluid">
+        <!-- Playlists -->
+        <div class="mdui-row">
+          <!-- Good blog articles -->
+          <div class="mdui-col-xs-12 mdui-col-md-6 mdui-col-lg-4">
+            <div class="mdui-card">
+              <div class="mdui-card-primary">
+                <div class="mdui-card-primary-title">Recommed Blogs</div>
+                <div class="mdui-card-primary-subtitle">Nice articles.</div>
+              </div>
+              <div class="mdui-list">
+                <a href="http://blogs.dffzmxj.tk/2018/05/06/js-convert-json-to-get-rq-sorry-server-not-understand-json/" target="_blank" class="mdui-list-item mdui-ripple">JavaScript convert JSON to query string</a>
+                <a href="http://blogs.dffzmxj.tk/2018/04/06/convert-sec-to-min-day-with-js-only-sec-made-me-hurt/" class="mdui-list-item mdui-ripple" target="_blank">JavaScript convert seconds to minutes, hours and days</a>
+                <a href="http://blogs.dffzmxj.tk/2018/02/11/c-plus-table-generator/" class="mdui-list-item mdui-ripple" target="_blank">C time table generator</a>
+                <a href="http://blogs.dffzmxj.tk/2018/01/22/grade-6-pinshe-materials/" class="mdui-list-item mdui-ripple" target="_blank">Grade 6 policy testings</a>
+              </div>
+            </div>
+          </div>
+          <!-- Keep 20 pixels on mobile devices -->
+          <div class="mdui-hidden-md-up mdui-col-xs-12" style="height:20px;"></div>
+          <!-- Funny weather report -->
+          <div class="mdui-col-xs-12 mdui-col-md-6 mdui-col-lg-4">
+            <div class="mdui-card">
+              <div class="mdui-card-primary">
+                <div class="mdui-card-primary-title">Global Weather Report</div>
+                <div class="mdui-card-primary-subtitle">How's the weather today?</div>
+              </div>
+              <ul class="mdui-list">
+                <li class="mdui-list-item mdui-ripple">
+                  <i class="mdui-list-item-icon mdui-icon material-icons">date_range</i>
+                  <div class="mdui-list-item-content" id="weatherDate">2019/2/32</div>
+                </li>
+                <li class="mdui-list-item mdui-ripple">
+                  <i class="mdui-list-item-icon mdui-icon material-icons">ac_unit</i>
+                  <div class="mdui-list-item-content" id="weatherInfo">NaN℃ ~ NaN℃ No weather</div>
+                </li>
+                <li class="mdui-list-item mdui-ripple">
+                  <i class="mdui-list-item-icon mdui-icon material-icons">wb_sunny</i>
+                  <div class="mdui-list-item-content" id="weatherSun">CP Index: NaN Red Index: NaN Blue Index: NaN</div>
+                </li>
+                <li class="mdui-list-item mdui-ripple">
+                  <i class="mdui-list-item-icon mdui-icon material-icons">wb_cloudy</i>
+                  <div class="mdui-list-item-content" id="weatherAir">PM250: NaN Opacity: NaN</div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <!-- Keep 20 pixels on mobile devices -->
+          <div class="mdui-hidden-md-up mdui-col-xs-12" style="height:20px;"></div>
+          <!-- Fast news -->
+          <div class="mdui-col-xs-12 mdui-col-md-6 mdui-col-lg-4">
+            <div class="mdui-card">
+              <div class="mdui-card-primary">
+                <span class="mdui-card-primary-title">Fast News</span>
+                <span class="mdui-card-primary-subtitle">Record the top stories in the world!</span>
+              </div>
+              <ul class="mdui-list">
+                <li class="mdui-list-item mdui-ripple">
+                  <i class="mdui-list-item-icon mdui-text-color-red mdui-icon material-icons">whatshot</i>
+                  <span class="mdui-list-item-content mdui-text-color-red">New home page of Goddess of Learning if released!</span>
+                </li>
+                <li class="mdui-list-item mdui-ripple">
+                  <i class="mdui-list-item-icon mdui-text-color-orange mdui-icon material-icons">whatshot</i>
+                  <span class="mdui-list-item-content mdui-text-color-orange">DDNote can be accessed now!</span>
+                </li>
+                <li class="mdui-list-item mdui-ripple">
+                  <i class="mdui-list-item-icon mdui-text-color-yellow mdui-icon material-icons">whatshot</i>
+                  <span class="mdui-list-item-content mdui-text-color-yellow">Goddess Forum's APP is released!</span>
+                </li>
+                <li class="mdui-list-item mdui-ripple">
+                  <i class="mdui-list-item-icon mdui-text-color-green mdui-icon material-icons">whatshot</i>
+                  <span class="mdui-list-item-content mdui-text-color-green">Goddess blogs used new theme!</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mdui-col-xs-12 mdui-valign">
+        <!-- Record how long you staied at this page. -->
+        <h2 class="mdui-center no-title-weight">You've wasted <span class="mdui-text-color-theme-accent" id="timeOfViewed"></span> at this page.</h1>
+          </div>
+          </div>
+      </main>
+      <footer class="footer">
+          <!-- Footer information -->
+          <text>&copy;2018 Goddess of Learning has all copyrights.</text>
+          <a class="mdui-hidden-xs mdui-float-right" href="/">中文网站</a>
+      </footer>
+      <!-- Hidden page compents, example music player, website static. -->
+      <div id="hidden" class="mdui-hidden"></div>
+      <!-- include JavaScript files(CDN) -->
+      <script src="resources/js/mdui.min.js"></script>
+      <!-- JavaScript files in the page. -->
+      <script>
+        /*
+         * The reason why I embed JS here is because... I don't want to upload so many files at once.
+        **/
+        //jQuery is died so I replace it with MDUI.
+        var $ = mdui.JQ;
+        //Improved time converter.
+        function fromSeconds(second=3600,to_text=false,hidden_detail=false,_time=[{name:"second",last:1,text:" secs"},{name:"minute",last:60,text:" mins"},{name:"hour",last:60,text:" hrs"},{name:"day",last:24,text:" days"},{name:"month",last:30,text:" months"},{name:"year",last:12,text:" years"}],now="0 seconds."){
+          //Convert second to other times.
+          let result = {};
+          if(to_text) result._text="";
+          for(let i = 0; i < _time.length; i++){
+            result[_time[i].name]=parseInt(!i?second:result[_time[i-1].name]/_time[i].last);
+            if(i) result[_time[i-1].name]=parseInt(result[_time[i-1].name]%_time[i].last);
+          }
+          for(let i = _time.length-1; i >=0; i=i-1){
+            if(to_text&&!hidden_detail){
+              //Show text result.
+              if(result[_time[i].name]!=0) result._text=result._text+result[_time[i].name]+_time[i].text;
+            }
+          }
+          if(to_text&&hidden_detail) for(let i = _time.length-1;i>=0;i=i-1){
+            if(result[_time[i].name]==0) continue;
+            else{
+              result._text=result[_time[i].name]+_time[i].text;
+              break;
+            }
+            if(result._text==""&&i==0) result._text=now;
+          }
+          return result;
+        }
+        var divider=$("#shadow-line").offset().top;
+        $(".mdui-list-item-icon").css("color","rgba(0,0,0,0.54)");//Force change list icon's colour.
+        /*$.event.add(window,"scroll",()=>{
+          //Detect to add the shadow for the navigation bar.
+          if($(window).scrollTop()+$("#appbar").height()>divider){
+            $("#appbar .mdui-toolbar").addClass("mdui-color-theme");
+            $("#appbar").removeClass("mdui-shadow-0");
+            $("#appbar-title").html("Look up for Hanhan, think down for the first.");
+          }else{
+            $("#appbar .mdui-toolbar").removeClass("mdui-color-theme");
+            $("#appbar").addClass("mdui-shadow-0");
+            $("#appbar-title").html("");
+          }
+          This function is unusable without jQuery.
+        });*/
+        //Random themes.
+        var defaultTheme=["cyan","green"];//Default theme.
+        var themesPrimary = ["red","pink","purple","deep-purple","indigo","blue","light-blue","cyan","teal","green","light-green","lime","yellow","amber","orange","deep-orange","brown","grey","blue-grey"];//Primary colours.
+        var themesAccent = ["red","pink","purple","deep-purple","indigo","blue","light-blue","cyan","teal","green","light-green","lime","yellow","amber","orange","deep-orange"];//Accent colours.
+        var theme = ()=>{
+          //Random themes function.
+          $("body").removeClass("mdui-theme-primary-"+defaultTheme[0]);//Remove old theme.
+          $("body").removeClass("mdui-theme-accent-"+defaultTheme[1]);
+          defaultTheme=[
+            themesPrimary[Math.round(Math.random()*(themesPrimary.length-1))],
+            themesAccent[Math.round(Math.random()*(themesAccent.length-1))]
+          ];
+          $("body").addClass("mdui-theme-primary-"+defaultTheme[0]);
+          $("body").addClass("mdui-theme-accent-"+defaultTheme[1]);
+        }
+        if(!localStorage.timeViewed) localStorage.timeViewed=0;
+        $("#timeOfViewed").html(fromSeconds(localStorage.timeViewed,1)._text);
+        setInterval(()=>$("#timeOfViewed").html(fromSeconds((localStorage.timeViewed=parseInt(localStorage.timeViewed)+1),1)._text),1000);
+        var srand = seed => ( seed * 9301 + 49297)%233280/(233280.0);//Seed random numbers.
+        //Funny weather report.
+        (weather=(dt=new Date())=>{//Developer option: custom date debugging.
+          var Today = Date.parse(dt)/1000|0;//Get the time stamp.
+          Today = Math.round(Today/(60*60*24));//Control at 24 hrs.
+          Today = srand(Today);//Get the seed of today.
+          $("#weatherDate").html((dt.getFullYear())+"/"+(dt.getMonth()+1)+"/"+(dt.getDate())+"");//Set the date.
+          var weathers = ["Sunny","Cloudy","Dark","Little Rainy","Middle Rainy","Thunder","Little Snowy","Middle Snowy","Large Snowy","Blow Sands"];//Weather list.
+          $("#weatherInfo").html("-"+(Today*273.15|0)+"℃ ~ "+(Today*0x7FFF|0)+"℃ "+weathers[Math.round(Today*(weathers.length-1))]);//Set the temperature.
+          $("#weatherSun").html("CP Index: "+((Today*0xAFF|0)^(Today*0xBFF|0))+" Red Index :"+(Today+0xAFF|0)+" Blue Index: "+(Today*0xBFF|0));//Set sun index.
+          $("#weatherAir").html("PM250: "+(Today*0xC4AC|0)+" Opacity: "+((Today*1000|0)/1000));//Set air index.
+          return {
+            stamp:Today,
+            date:dt,
+            weather:weathers[Math.round(Today*(weathers.length-1))],
+            info:{
+              max:Today*0x7FFF|0,
+              min:(Today*273.15|0)*(-1)
+            },
+            sun:{
+              cp:(Today*0xAFF|0)^(Today*0xBFF|0),
+              red:Today+0xAFF|0,
+              blue:Today*0xBFF|0
+            },
+            air:{
+              pm250:Today*0xC4AC|0,
+              opacity:(Today*1000|0)/1000
+            }
+          };
+        })();
+        $(document).ready(()=>{
+          $("#preloader").addClass("mdui-hidden");//Remove the loading bar when the page loaded.
+          mdui.snackbar("Website's owner can't be active normally.", {
+            buttonText: "Learn more",
+            onButtonClick: function () {
+              mdui.dialog({
+                title: "Website's owner can't be active normally.",
+                content: "Very sorry that this website's owner can't be active normally because of these reasons below:<ul><li>The website's owner is out of the fashion.</li><li>The website's owner isn't peaceful.</li><li>The website's owner is a wild pig.</li><li>Homework won the website's owner.</li></ul><footer>DFFZMXJ Website(学神之女网</footer>",
+                buttons: [
+                  {
+                    text: "我知道了"
+                  }
+               ]
+             });
+           }
+          });
+        });
+        (()=>{
+          //If date is June 12, play birthday song automatically.
+          var Dt=new Date();
+          if((Dt.getMonth()==5)&&(Dt.getDate()==12))
+            $("#hidden").append('<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=5279993&auto=1&height=66"></iframe>');
+          if((Dt.getMonth()==5&&Dt.getDate()-12==0)){
+            console.log("%cHap%cpy %cbirth%cday%c, Little %cHanhan!","font-size:56px;font-weight:400;color:#2196f3;","font-size:56px;font-weight:400;color:#f44336;","font-size:56px;font-weight:400;color:#ffeb3b;","font-size:56px;font-weight:400;color:#2196f3;","font-size:56px;font-weight:400;color:#4caf50;","font-size:56px;font-weight:400;color:#f44336;");//Happy birthday in console.
+          }else $("#happy-birthday").addClass("mdui-hidden");//If it's far to birthday, hidden birthday banner.
+        })();
+      </script>
+  </body>
+</html>
