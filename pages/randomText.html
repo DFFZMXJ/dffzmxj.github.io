@@ -1,0 +1,168 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Random Switch Text</title>
+    <style>
+      /*Anyway I want to write a comment here.*/
+      body{
+        margin:0;
+        padding:0;
+        width:100%;
+        height:100%;
+        font-family:Roboto, arial, sans-serif;
+        word-wrap:break-word;
+      }
+      .central-card{
+        width:450px;
+        min-height:500px;
+        border: 1px solid #dadce0;
+        display:block;
+        border-radius:8px;
+        background:#fff;
+        margin:auto;
+        padding:48px 40px 36px;
+      }
+      .central-card>header{
+        text-align:center;
+      }
+      .central-card>header>h1{
+        font-family:"Product Sans","Google Sans",sans-serif;
+        padding-bottom:0;
+        padding-top:16px;
+        font-size:24px;
+        font-weight:400;
+        line-height:1.333;
+        margin-bottom:0;
+        margin-top:0;
+      }
+      .central-card>header>h2{
+        font-size:16px;
+        letter-spacing:.1px;
+        line-height:1.5;
+        padding-bottom:0;
+        padding-top:8px;
+        margin:0;
+        font-weight:400;
+      }
+      .central-card>main{
+        font-size:15px;
+        padding:0 40px;
+      }
+      @media screen and (max-width:600px){
+        .central-card{
+          height:100%;
+          width:100%;
+          border:none;
+          padding:0;
+        }
+      }
+      #rand-character{
+        color:#1a73e8;
+        font-weight:500;
+      }
+    </style>
+  </head>
+  <body>
+    <dialog class="central-card">
+      <header>
+        <h1>Random Character</h1>
+        <h2>Here it is:<span id="rand-character"></span></h2>
+      </header>
+      <main>
+        <p>
+          Because I am lazy, so I won't setup a textfield to direct add new word.
+        </p>
+        <p>
+          If you are looking for the source code, try pressing <kbd>F12</kbd> or add a <code>view-source:</code> prefix before the URL.
+        </p>
+      </main>
+    </dialog>
+    <script>
+      function randomCharacter(element,characters=["UNDEFINED"]){
+        var settings = {
+          el:element,
+          chars:characters,
+          delay:{
+            cycle:2000,
+            char:25
+          },
+          intervals:{
+            cycle:null,
+            char:null
+          },
+          progress:{
+            cycle:null,
+            char:null
+          }
+        };
+        function updateEntire(){
+          //if(!settings.intervals.char){
+            settings.progress.cycle = Math.random()*settings.chars.length|0;
+            settings.progress.char = 0;
+            //settings.intervals.char = setInterval(updateOneCharacter,settings.delay.char);
+          //}
+        }
+        function updateOneCharacter(){
+       // if(settings.progress.char++<settings.chars[settings.progress.cycle].length)
+          document.querySelector(settings.el).innerText = 
+            settings.chars[settings.progress.cycle].substr(0,settings.progress.char)+
+            Math.random().toString(16).substr(2,settings.chars[settings.progress.cycle].length-settings.progress.char);
+         // else
+         //   settings.intervals.char = clearInterval(settings.intervals.char);
+        }
+        function cycleController(){
+          //Finally I decided to use a controller to control the cycles looping.
+          if(!settings.intervals.char) {
+            updateEntire();
+            settings.intervals.char = setInterval(function(){
+              if(settings.progress.char++<settings.chars[settings.progress.cycle].length)
+                updateOneCharacter();
+              else
+                settings.intervals.char = clearInterval(settings.intervals.char);
+            },settings.delay.char);
+          }
+        }
+        settings.__proto__.restart = function(cycle=2000,char=25){
+          clearInterval(settings.intervals.cycle);
+          clearInterval(settings.intervals.char);
+          settings.intervals.char = null;//Prevent exceptions.
+          settings.delay = {cycle:cycle,char:char};
+          settings.intervals.cycle = setInterval(cycleController,cycle);
+          cycleController();//I don't want to wait for a few seconds first.
+        }
+        Object.freeze(settings.__proto__);//Prevent unexpected changes.
+        settings.restart();//Start the refresher.
+        return settings;
+      }
+      var example = new randomCharacter("#rand-character",[
+        //常用MC指令、常见B站梗、常见指令和代码
+        "/give @a hugs 64",
+        "/gamerule keepInventory true",
+        "/gamemode creative",
+        "Are you OK???",
+        "The deep dark fantasies.",
+        "Do you like what you see?",
+        "Boy next door.",
+        "你是魔鬼吗？",
+        "毕竟老夫也不是什么魔鬼嘛",
+        "Undingable",
+        "爆炸吧，现充!",
+        "你被强化了，快送",
+        "影子都是爱你的形状",
+        "信仰之跃",
+        "八一老爷生前是个体面人，大家吐口痰再走吧",
+        "万恶之源",
+        "未闻花名，但识花香，再见花时，泪已千行",
+        "人类的本质是复读机",
+        "←NVIDIA Intel↓",
+        "System.out.println('Hello World');",
+        "rm -rf / --no-root-preserve",
+        "del /q /f C:\\",
+        "print('Hello World')",
+        "while(1) console.log('人类的本质是复读机');",
+        "<a href='javascript:alert(\\'清除成功\\');'>清除缓存</a>"
+      ]);
+    </script>
+  </body>
+</html>
