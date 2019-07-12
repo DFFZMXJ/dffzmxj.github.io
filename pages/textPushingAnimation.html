@@ -1,0 +1,228 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Text Pushing Animation</title>
+    <style>
+      /*Anyway I want to write a comment here.*/
+      body, input{
+        font-family: -apple-system, 'PingFang SC', Roboto, Noto, 'Microsoft YaHei', Arial, sans-serif;
+      }
+      .central-panel{
+        display: block;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        box-shadow: 0 0 5px;
+        border-radius: 2px;
+        border: none;
+        max-width: 640px;
+        width:100%;
+      }
+      .central-panel>header{
+        color: #1a73e8;
+        display: block;
+        height: 75px;
+        line-height: 75px;
+        text-align: center;
+        font-size:20px;
+      }
+      .central-panel>main{
+        padding: 20px;
+      }
+      .central-panel>main>.section{
+        padding: 20px 0;
+      }
+      .text-push{
+        position: relative;
+      }
+      @keyframes text-push__up{
+        from{
+          transform: translateY(100%);
+        }
+        to{
+          transform: translateY(0);
+        }
+      }
+      @keyframes fade-out{
+        from{
+          opacity: 1;
+        }
+        to{
+          opacity: 0;
+        }
+      }
+      .text-push__up{
+        animation: text-push__up .325s ease;
+      }
+      .text-push__up::before{
+        content:attr(data-original-text);
+        position:absolute;
+        bottom:100%;
+        animation: fade-out .235s ease;
+        opacity: 0;
+        left: 50%;
+        transform: translate(-50%);
+      }
+      @keyframes text-push__down{
+        from{
+          transform: translateY(-100%);
+        }
+        to{
+          transform: translateY(0);
+        }
+      }
+      .text-push__down{
+        animation: text-push__down .5s ease;
+      }
+      .text-push__down::before{
+        content:attr(data-original-text);
+        position:absolute;
+        top:100%;
+        animation: fade-out .235s ease;
+        opacity: 0;
+        left: 50%;
+        transform: translate(-50%);
+      }
+    </style>
+  </head>
+  <body>
+    <dialog class="central-panel">
+      <header id="preview" class="push-text">
+        Hello, World!
+      </header>
+      <main>
+        <p class="section">
+          Better experience while DevTool is opening~
+        </p>
+        <div class="section">
+          Settings: 
+          <label>
+            <input type="checkbox" id="auto-update" checked /> <!--Don't uncheck me unless you want to try your own text!!!-->
+            Update Automatically
+          </label>
+          Direction
+          <label>
+            <input type="radio" name="direction" value="up" />
+            Down->Up
+          </label>
+          <label>
+            <input type="radio" name="direction" checked value="down" />
+            Up->Down
+          </label>
+        </div>
+        <hr />
+        <div class="section">
+          Custom Text:
+          <input id="custom-text" placeholder="Type anything you want..."/>
+          <button id="manually-update">Update</button>
+        </div>
+      </main>
+    </dialog>
+    <script>
+      const upcomingText = [
+        //常用MC指令
+        "/give @a command_block 64",
+        "/gamerule keepInventory true",
+        "/gamemode creative",
+        //常见B站梗（多数已过气）
+        "Are you OK???",
+        "The deep dark fantasies.",
+        "Do you like what you see?",
+        "Boy next door.",
+        "你是魔鬼吗？",
+        "毕竟老夫也不是什么魔鬼嘛",
+        "Undingable",
+        "爆炸吧，现充!",
+        "你被强化了，快送",
+        "影子都是爱你的形状",
+        "有车有房，父母双亡",
+        "信仰之跃",
+        "八一老爷生前是个体面人，大家吐口痰再走吧",
+        "万恶之源",
+        "未闻花名，但识花香，再见花时，泪已千行",
+        "人类三大本质: 1. 真香; 2. 真香;",
+        "阿伟大型追悼会",
+        "唱、跳、Rap、篮球，Music！",
+        "只因你太美",
+        "律师函警告",
+        "我信你个鬼，你个糟老头子坏的很",
+        "性感NASA，在线造车", //非原梗
+        "Sorry, 有钱就是可以为所欲为",
+        "您的好友[鬼子电报员]已上线",
+        "有木有WiFi 有木有WiFi 有而且耐用五毛的",
+        "随地大小变",
+        "肥宅快乐水",
+        "みゃー姉~みゃー姉~みゃー姉~", //喵内~喵内~喵内~
+        "三年起步，最高死刑",
+        "五等分的牢饭",
+        "重新定义30秒",
+        "←NVIDIA Intel↓",
+        "极致色彩 简约线条",
+        //班梗（(✿◡‿◡)我班自创梗）
+        "啊！该死的太阳！",
+        "光头帝", //光武帝
+        "保安部", //三省六部
+        //匿源梗
+        //猿梗
+        "还是MDUI好",
+        "System.out.println('Hello World');",
+        "rm -rf / --no-preserve-root", //会看注释为何不懂这些代码/指令？？？
+        "chmod 000 -R /",
+        "del /q /f C:\\",
+        "print('Hello World')",
+        "while(1) console.log('人类的本质是复读机');",
+        "<a href='javascript:alert(\\'清除成功\\');'>清除缓存</a>",
+        "while(input=prompt(window.input||'你的问题？').replace(/\\?？/g,'!').replace(/吗/g,''));//价值Infinity"
+      ];
+      //Core manager.
+      const pushText = {
+        _reanimate(className, element){
+          let classes = new Set(element.getAttribute('class').split(' '));
+          for(let sClass of className.split(' ')) classes.delete(sClass);
+          element.setAttribute('class',
+            Array.from(classes).join(' ')
+          );
+          setTimeout(
+            ()=>element.setAttribute('class', Array.from(className.split(' ').reduce((mClasses,sClass)=>mClasses.add(sClass),classes)).join(' '))
+          );
+        },
+        up(text, element){
+          element.setAttribute('data-original-text', element.innerText);
+          element.innerText = text;
+          let classes = new Set(element.getAttribute('class').split(' '));
+          classes.add('text-push').delete('text-push__down');
+          element.setAttribute('class',
+            Array.from(classes).join(' ')
+          );
+          this._reanimate('text-push__up', element);
+        },
+        down(text, element){
+          element.setAttribute('data-original-text', element.innerText);
+          element.innerText = text;
+          let classes = new Set(element.getAttribute('class').split(' '));
+          classes.add('text-push').delete('text-push__up');
+          element.setAttribute('class',
+            Array.from(classes).join(' ')
+          );
+          this._reanimate('text-push__down', element);
+        }
+      };
+      //I am lazy. _(:3」∠)_
+      const getDirection = () => document.querySelector('[name="direction"]:checked').value; //It's impossible that two radios are checked.
+      const preview = document.querySelector('#preview');
+      const autoUpdate = () => document.querySelector('#auto-update').checked;
+      const pickUpcomingText = () => upcomingText[Math.random()*(upcomingText.length-1)|0];
+      //Prevent bugs.
+      if(!preview.hasAttributes('class')) preview.setAttribute('class','push-text');
+      //Event handlers.
+      setInterval(()=>(autoUpdate()&& pushText[getDirection()](pickUpcomingText(), preview)),1000);
+      document.querySelector('#manually-update').addEventListener(
+        'click',
+        ()=>pushText[getDirection()](document.querySelector('#custom-text').value, preview)
+      );
+    </script>
+  </body>
+</html>
