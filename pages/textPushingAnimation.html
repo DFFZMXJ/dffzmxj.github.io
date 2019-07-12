@@ -35,6 +35,52 @@
       .central-panel>main>.section{
         padding: 20px 0;
       }
+      input[type="text"]{
+	      height:40px;
+	      line-height:40px;
+	      font-size:15px;
+	      color:rgba(0,0,0,.87);
+	      width:100%;
+	      background:transparent;
+	      outline:none;
+	      border:none;
+	      border-bottom:2px solid grey;
+	      transition:all .2s ease;
+      }
+      input[type="text"]:focus{
+      	border-bottom:2px solid #1a73e8;
+      }
+      input[type="text"]:disabled{
+      	border-bottom:2px solid #AFAFAF;
+      	color:#AFAFAF;
+      }
+      button{
+	      min-width:88px;
+	      background:transparent;
+	      outline:none;
+	      border:none;
+	      height:36px;
+	      padding-left:8px;
+	      padding-right:8px;
+	      line-height:16px;
+	      font-size:14px;
+	      border-radius:2px;
+	      cursor:pointer;
+	      text-transform:uppercase;
+	      font-weight:600;
+	      transition:all .325s ease;
+	      margin:10px;
+	      color:#1a73e8;
+      }
+      button:hover{
+	      background:rgb(226, 226, 226);
+      }
+      button:active{
+      	background:rgba(153,153,153,.4);
+      }
+      button:disabled{
+      	color:rgba(0,0,0,.26);
+      }
       .text-push{
         position: relative;
       }
