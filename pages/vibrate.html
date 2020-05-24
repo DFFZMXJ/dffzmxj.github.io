@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width = device-width" />
+	<title>手机震动测试</title>
+</head>
+<fieldset>
+	持续时间（毫秒）：<input type="number" value="114.514" oninput="window.vDuration = this.value" />
+</fieldset>
+<fieldset>
+	<button onclick="'vibrate' in navigator ? navigator.vibrate(window.vDuration) : alert(`亲，浏览器不支持震动API`) ;">震动</button>
+	<button onclick="'vibrate' in navigator ? navigator.vibrate(0) : alert(`一定是其它软件在震动！`);">中止震动</button>
+</fieldset>
+<script>vDuration = '114.514'; if(!('vibrate' in navigator)) navigator.vibrate = navigator.webkitVibrate || navigator.mozVibrate || navigator.msVibrate || alert(`亲，浏览器不支持震动API，即使算上私有前缀`); /*听说Apple机不兼容，试试私有前缀*/</script>
