@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html><!--不要加 lnag="zh_CN"，否则在 Chromium Edge 上，中文字体就始终是雅黑。-->
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+        <title>学神录</title>
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/mdui@1.0.1/dist/css/mdui.min.css"
+            integrity="sha384-cLRrMq39HOZdvE0j6yBojO4+1PrHfB7a9l5qLcmRm/fiWXYY+CndJPmyu5FV/9Tw"
+            crossorigin="anonymous"
+        />
+        <style>
+            .banner {
+                height: 50vh;
+                background: url(miku.jpg);
+                background-size: cover;
+                transition: height .3s ease;
+            }
+            .list-of-items {
+                columns: auto 300px;
+                margin: 12px;
+                margin-top: -20vh;
+                transition: margin-top .3s ease;
+            }
+            .list-of-items > div {
+                break-inside: avoid;
+            }
+            .list-of-items > div+div {
+                margin-top: 32px;
+            }
+            .list-of-items .mdui-card-media img {
+                max-height: 300px;
+                object-fit: cover;
+                transition: height .3s ease;
+            }
+            @media (max-width: 720px) {
+                .banner {
+                    height: 75vh;
+                }
+                .list-of-items {
+                    margin-top: -50vh;
+                }
+                .list-of-items .mdui-card-media img {
+                    max-height: 350px;
+                }
+            }
+            .mdui-appbar, .mdui-toolbar {
+                transition: .2s ease;
+            }
+            .mdui-appbar {
+                transition-property: box-shadow;
+            }
+            .mdui-toolbar {
+                transition-property: background;
+            }
+        </style>
+    </head>
+    <body class="mdui-theme-primary-teal mdui-theme-accent-green">
+        <header class="mdui-appbar mdui-appbar-fixed mdui-shadow-0">
+            <nav class="mdui-toolbar mdui-text-color-white">
+                <button class="mdui-btn mdui-btn-icon mdui-ripple">
+                    <i class="mdui-icon material-icons">menu</i>
+                </button>
+                <div class="mdui-typo-title">学神录</div>
+                <div class="mdui-toolbar-spacer"></div>
+                <button class="mdui-btn mdui-btn-icon mdui-ripple">
+                    <i class="mdui-icon material-icons">refresh</i>
+                </button>
+            </nav>
+        </header>
+        <div class="banner"></div>
+        <div class="list-of-items">
+            <div class="mdui-card">
+                <div class="mdui-card-content">
+                    <p>这是学神录的模板，所以大部分按钮是装饰，按下不会有实质效果，也没有工具提示。</p>
+                    <p>有效的按钮：</p>
+                    <ul>
+                        <li>此页学神之女的卡片的“查看详细”</li>
+                        <li>此页的 FAB</li>
+                        <li>学神之女的详细页的 FAB</li>
+                        <li>编辑页的左上角的 <i class="mdui-icon material-icons">close</i></li>
+                    </ul>
+                    <p>当然，没有实质效果的按钮也可以按按，也会有动效。</p>
+                </div>
+            </div>
+            <div class="mdui-card">
+                <div class="mdui-card-media">
+                    <img src="covers/1.jpg" alt="学神之女" />
+                </div>
+                <div class="mdui-card-primary">
+                    <div class="mdui-card-primary-title">学神之女</div>
+                    <div class="mdui-card-primary-subtitle">举头望涵涵，低头思第一。</div>
+                </div>
+                <div class="mdui-card-content">
+                    <div class="mdui-chip mdui-text-color-pink-accent">
+                        <span class="mdui-chip-icon mdui-color-grey-400"><i class="mdui-icon"><img src="gender-female.svg" alt="性别" /></i></span>
+                        <span class="mdui-chip-title">女</span>
+                    </div>
+                    <div class="mdui-chip">
+                        <span class="mdui-chip-title">16岁</span>
+                    </div>
+                    <div class="mdui-chip">
+                        <span class="mdui-chip-icon"><i class="mdui-icon material-icons">location_city</i></span>
+                        <span class="mdui-chip-title">dffzmxj.com</span>
+                    </div>
+                    <div class="mdui-chip">
+                        <span class="mdui-chip-icon"><i class="mdui-icon material-icons">favorite</i></span>
+                        <span class="mdui-chip-title">12</span>
+                    </div>
+                    <div class="mdui-chip">
+                        <span class="mdui-chip-icon"><i class="mdui-icon material-icons">remove_red_eye</i></span>
+                        <span class="mdui-chip-title">466</span>
+                    </div>
+                </div>
+                <div class="mdui-card-actions">
+                    <a href="classmate.html" class="mdui-btn mdui-ripple mdui-float-right">查看详细<i class="mdui-icon material-icons">keyboard_arrow_right</i></a>
+                </div>
+            </div>
+            <div class="mdui-card">
+                <div class="mdui-card-media">
+                    <img src="covers/2.jpg" alt="TS同学" />
+                </div>
+                <div class="mdui-card-primary">
+                    <div class="mdui-card-primary-title">TS同学</div>
+                    <div class="mdui-card-primary-subtitle">助人使我快乐。</div>
+                </div>
+                <div class="mdui-card-content">
+                    <div class="mdui-chip mdui-text-color-pink-accent">
+                        <span class="mdui-chip-icon mdui-color-grey-400"><i class="mdui-icon"><img src="gender-female.svg" alt="性别" /></i></span>
+                        <span class="mdui-chip-title">女</span>
+                    </div>
+                    <div class="mdui-chip">
+                        <span class="mdui-chip-title">15岁</span>
+                    </div>
+                    <div class="mdui-chip">
+                        <span class="mdui-chip-icon"><i class="mdui-icon material-icons">location_city</i></span>
+                        <span class="mdui-chip-title">银河系</span>
+                    </div>
+                    <div class="mdui-chip">
+                        <span class="mdui-chip-icon"><i class="mdui-icon material-icons">favorite</i></span>
+                        <span class="mdui-chip-title">99</span>
+                    </div>
+                    <div class="mdui-chip">
+                        <span class="mdui-chip-icon"><i class="mdui-icon material-icons">remove_red_eye</i></span>
+                        <span class="mdui-chip-title">589</span>
+                    </div>
+                </div>
+                <div class="mdui-card-actions">
+                    <button class="mdui-btn mdui-ripple mdui-float-right">查看详细<i class="mdui-icon material-icons">keyboard_arrow_right</i></button>
+                </div>
+            </div>
+            <div class="mdui-card">
+                <div class="mdui-card-media">
+                    <img src="covers/3.jpg" alt="Carlos2004" />
+                </div>
+                <div class="mdui-card-primary">
+                    <div class="mdui-card-primary-title">Carlos2004</div>
+                    <div class="mdui-card-primary-subtitle">不忘初心 生为奇迹</div>
+                </div>
+                <div class="mdui-card-content">
+                    <div class="mdui-chip mdui-text-color-blue-accent">
+                        <span class="mdui-chip-icon mdui-color-grey-400"><i class="mdui-icon"><img src="gender-male.svg" alt="性别" /></i></span>
+                        <span class="mdui-chip-title">男</span>
+                    </div>
+                    <div class="mdui-chip">
+                        <span class="mdui-chip-title">16岁</span>
+                    </div>
+                    <div class="mdui-chip">
+                        <span class="mdui-chip-icon"><i class="mdui-icon material-icons">location_city</i></span>
+                        <span class="mdui-chip-title">http://ruoyu.iapp.网址</span>
+                    </div>
+                    <div class="mdui-chip">
+                        <span class="mdui-chip-icon"><i class="mdui-icon material-icons">favorite</i></span>
+                        <span class="mdui-chip-title">99</span>
+                    </div>
+                    <div class="mdui-chip">
+                        <span class="mdui-chip-icon"><i class="mdui-icon material-icons">remove_red_eye</i></span>
+                        <span class="mdui-chip-title">589</span>
+                    </div>
+                </div>
+                <div class="mdui-card-actions">
+                    <button class="mdui-btn mdui-ripple mdui-float-right">查看详细<i class="mdui-icon material-icons">keyboard_arrow_right</i></button>
+                </div>
+            </div>
+            <div class="mdui-card">
+                <div class="mdui-card-media">
+                    <img src="covers/4.jpg" alt="Hacker" />
+                </div>
+                <div class="mdui-card-primary">
+                    <div class="mdui-card-primary-title">Hacker</div>
+                    <div class="mdui-card-primary-subtitle">&lt;script src="//h.com/xss-code"&gt;&lt;/script&gt;</div>
+                </div>
+                <div class="mdui-card-content">
+                    <div class="mdui-chip mdui-text-color-orange-accent">
+                        <span class="mdui-chip-icon mdui-color-grey-400"><i class="mdui-icon"><img src="gender-other.svg" alt="性别" /></i></span>
+                        <span class="mdui-chip-title">非二元</span>
+                    </div>
+                    <div class="mdui-chip">
+                        <span class="mdui-chip-title">NaN岁</span>
+                    </div>
+                    <div class="mdui-chip">
+                        <span class="mdui-chip-icon"><i class="mdui-icon material-icons">location_city</i></span>
+                        <span class="mdui-chip-title">2019203921</span>
+                    </div>
+                    <div class="mdui-chip">
+                        <span class="mdui-chip-icon"><i class="mdui-icon material-icons">favorite</i></span>
+                        <span class="mdui-chip-title">4</span>
+                    </div>
+                    <div class="mdui-chip">
+                        <span class="mdui-chip-icon"><i class="mdui-icon material-icons">remove_red_eye</i></span>
+                        <span class="mdui-chip-title">29</span>
+                    </div>
+                </div>
+                <div class="mdui-card-actions">
+                    <button class="mdui-btn mdui-ripple mdui-float-right">查看详细<i class="mdui-icon material-icons">keyboard_arrow_right</i></button>
+                </div>
+            </div>
+            <div class="mdui-card">
+                <div class="mdui-card-media">
+                    <img src="covers/5.jpg" alt="纯碱不是碱。" />
+                </div>
+                <div class="mdui-card-primary">
+                    <div class="mdui-card-primary-title">纯碱不是碱。</div>
+                    <div class="mdui-card-primary-subtitle">能行吗</div>
+                </div>
+                <div class="mdui-card-content">
+                    <div class="mdui-chip mdui-text-color-pink-accent">
+                        <span class="mdui-chip-icon mdui-color-grey-400"><i class="mdui-icon"><img src="gender-female.svg" alt="性别" /></i></span>
+                        <span class="mdui-chip-title">女</span>
+                    </div>
+                    <div class="mdui-chip">
+                        <span class="mdui-chip-title">14岁</span>
+                    </div>
+                    <div class="mdui-chip">
+                        <span class="mdui-chip-icon"><i class="mdui-icon material-icons">location_city</i></span>
+                        <span class="mdui-chip-title">Eswatini (Swaziland)</span>
+                    </div>
+                    <div class="mdui-chip">
+                        <span class="mdui-chip-icon"><i class="mdui-icon material-icons">favorite</i></span>
+                        <span class="mdui-chip-title">23</span>
+                    </div>
+                    <div class="mdui-chip">
+                        <span class="mdui-chip-icon"><i class="mdui-icon material-icons">remove_red_eye</i></span>
+                        <span class="mdui-chip-title">102</span>
+                    </div>
+                </div>
+                <div class="mdui-card-actions">
+                    <button class="mdui-btn mdui-ripple mdui-float-right">查看详细<i class="mdui-icon material-icons">keyboard_arrow_right</i></button>
+                </div>
+            </div>
+        </div>
+        <a href="create.html" class="mdui-fab mdui-fab-fixed mdui-color-theme-accent mdui-ripple"><i class="mdui-icon material-icons">note_add</i></a>
+        <script
+            src="https://cdn.jsdelivr.net/npm/mdui@1.0.1/dist/js/mdui.min.js"
+            integrity="sha384-gCMZcshYKOGRX9r6wbDrvF+TcCCswSHFucUzUPwka+Gr+uHgjlYvkABr95TCOz3A"
+            crossorigin="anonymous"
+        ></script>
+        <script>
+            const appbar = document.querySelector(".mdui-appbar");
+            const toolbar = document.querySelector(".mdui-toolbar");
+            function changeFABandAppbar() {
+                if(document.querySelector(".banner").offsetHeight - scrollY < appbar.offsetHeight) {
+                    appbar.classList.remove("mdui-shadow-0");
+                    toolbar.classList.add("mdui-color-theme");
+                } else {
+                    appbar.classList.add("mdui-shadow-0");
+                    toolbar.classList.remove("mdui-color-theme");
+                }
+            }
+            addEventListener("scroll", changeFABandAppbar);
+            addEventListener("resize", changeFABandAppbar);
+            changeFABandAppbar();
+        </script>
+    </body>
+</html>

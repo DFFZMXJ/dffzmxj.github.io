@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+        <title>学神之女 - 学神录</title>
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/mdui@1.0.1/dist/css/mdui.min.css"
+            integrity="sha384-cLRrMq39HOZdvE0j6yBojO4+1PrHfB7a9l5qLcmRm/fiWXYY+CndJPmyu5FV/9Tw"
+            crossorigin="anonymous"
+        />
+        <style>
+            .banner {
+                height: 50vh;
+                background: url(miku.jpg);
+                background-size: cover;
+                transition: height .3s ease;
+            }
+            .info {
+                max-width: 680px;
+                width: 95%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                margin: 0 auto;
+                margin-top: -20vh;
+                margin-bottom: 32px;
+            }
+            .info > div {
+                width: 100%;
+                margin-top: 12px;
+            }
+            .info .mdui-card-media > img {
+                max-height: 400px;
+                min-height: 200px;
+                object-fit: cover;
+            }
+            @media (max-width: 720px) {
+                .banner {
+                    height: 75vh;
+                }
+                .info {
+                    margin-top: -50vh;
+                }
+            }
+            .waterfall {
+                columns: auto 300px;
+            }
+            .waterfall > div {
+                break-inside: avoid;
+            }
+            .waterfall > div+div {
+                margin-top: 12px;
+            }
+            .like-info {
+                display: flex;
+                align-items: center;
+            }
+            .like-info > .like-info-spacer {
+                flex: 1 1;
+            }
+            .mdui-card-header-title > a {
+                text-decoration: none;
+            }
+            .mdui-card-header-title > i {
+                font-size: 20px;
+                line-height: 20px;
+            }
+            .mdui-fab-fixed {
+                bottom: initial;
+                top: calc(100vh - 16px);
+                transform: translateY(-100%);
+            }
+            @media screen and (min-width: 1024px) {
+                .mdui-fab-fixed:not(.scrolled-over) {
+                    top: 50vh;
+                    right: 64px;
+                    transform: translateY(-50%);
+                    margin: 0;
+                    position: absolute!important;
+                }
+                .mdui-fab-fixed {
+                    top: calc(100% - 24px);
+                }
+            }
+            .mdui-appbar, .mdui-toolbar {
+                transition: .2s ease;
+            }
+            .mdui-appbar {
+                transition-property: box-shadow;
+            }
+            .mdui-toolbar {
+                transition-property: background;
+            }
+        </style>
+    </head>
+    <body class="mdui-theme-primary-teal mdui-theme-accent-green">
+        <header class="mdui-appbar mdui-appbar-fixed mdui-shadow-0">
+            <nav class="mdui-toolbar mdui-text-color-white">
+                <button class="mdui-btn mdui-btn-icon mdui-ripple">
+                    <i class="mdui-icon material-icons">close</i>
+                </button>
+                <div class="mdui-typo-title">学神之女</div>
+                <div class="mdui-toolbar-spacer"></div>
+                <button class="mdui-btn mdui-btn-icon mdui-ripple">
+                    <i class="mdui-icon material-icons">flag</i>
+                </button>
+            </nav>
+        </header>
+        <div class="banner"></div>
+        <div class="info">
+            <div class="mdui-card">
+                <div class="mdui-card-media">
+                    <img src="covers/1.jpg" />
+                    <div class="mdui-card-media-covered">
+                        <div class="mdui-card-primary">
+                            <div class="mdui-card-primary-title">
+                                学神之女
+                                <i class="mdui-icon"><img src="gender-female.svg" alt="性别" /></i>
+                            </div>
+                            <div class="mdui-card-primary-subtitle">举头望涵涵，低头思第一。</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="waterfall">
+                <div class="mdui-card">
+                    <div class="mdui-card-primary">
+                        <div class="mdui-card-primary-title">基本信息</div>
+                    </div>
+                    <ul class="mdui-list">
+                        <li class="mdui-list-item mdui-ripple">
+                            <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-theme">cake</i>
+                            <div class="mdui-list-item-content">2004年12月5日</div>
+                        </li>
+                        <li class="mdui-list-item mdui-ripple">
+                            <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-theme">location_city</i>
+                            <div class="mdui-list-item-content">dffzmxj.com</div>
+                        </li>
+                        <li class="mdui-list-item mdui-ripple">
+                            <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-theme">email</i>
+                            <div class="mdui-list-item-content">dffzmxj@qq.com</div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="mdui-card">
+                    <div class="mdui-card-primary">
+                        <div class="mdui-card-primary-title">形象关键词</div>
+                    </div>
+                    <div class="mdui-card-content">
+                        <div class="mdui-chip mdui-color-theme-50 mdui-text-color-theme">
+                            <span class="mdui-chip-title">初中生</span>
+                        </div>
+                        <div class="mdui-chip mdui-color-theme-50 mdui-text-color-theme">
+                            <span class="mdui-chip-title">PHP</span>
+                        </div>
+                        <div class="mdui-chip mdui-color-theme-50 mdui-text-color-theme">
+                            <span class="mdui-chip-title">HTML</span>
+                        </div>
+                        <div class="mdui-chip mdui-color-theme-50 mdui-text-color-theme">
+                            <span class="mdui-chip-title">夜猫子</span>
+                        </div>
+                        <div class="mdui-chip mdui-color-theme-50 mdui-text-color-theme">
+                            <span class="mdui-chip-title">选择恐惧症</span>
+                        </div>
+                        <div class="mdui-chip mdui-color-theme-50 mdui-text-color-theme">
+                            <span class="mdui-chip-title">懒癌III期</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="mdui-card">
+                    <div class="mdui-card-primary">
+                        <div class="mdui-card-primary-title">自由介绍</div>
+                    </div>
+                    <div class="mdui-card-content mdui-typo">
+                        <p>欢迎欢迎！</p>
+                        <p>想要发自己的同学录的话，点下页面左上角的叉号，再点下右下角的浮动操作按钮，填好信息就可以。来者不拒。</p>
+                        <p>如果想自己搭建这样的同学录的话，请到<a>DDNote - GitHub</a>下载，然后搭建。</p>
+                        <p>当然，虽然说是来者不拒，但如果发些恶意攻击、灌水、<attr title="宣传自己的日常博客、感觉不错的网店、技术讨论的群聊这些，不属于垃圾广告。垃圾广告指的是这种：砍价促销群聊、违禁品店、宣传游戏但使用游戏自动生成的广告词的。">垃圾广告</attr>、违法信息的话，还是会删除、限制的。</p>
+                    </div>
+                </div>
+                <div class="mdui-card">
+                    <div class="mdui-card-primary">
+                        <div class="mdui-card-primary-title">问答如流</div>
+                    </div>
+                    <div class="mdui-card-content">
+                        <div class="mdui-typo-title">Q. 对于同学录的完成，你的感受如何？</div>
+                        <br />
+                        <div class="mdui-typo"><p>害——当然是——高兴、自豪，迫不及待想邀请你填写！</p></div>
+                    </div>
+                    <div class="mdui-divider"></div>
+                    <div class="mdui-card-content">
+                        <div class="mdui-typo-title">Q. 你最得意的作文是什么样的？</div>
+                        <br />
+                        <div class="mdui-typo"><p>有TS同学；有提到自己初中语文作文的历程。</p></div>
+                    </div>
+                    <div class="mdui-divider"></div>
+                    <div class="mdui-card-content">
+                        <div class="mdui-typo-title">Q. 聊点敏感的话题吧……如何看待回形针PaperClip？</div>
+                        <br />
+                        <div class="mdui-typo"><p>别……不想因政治敏感让自己的网站被……</p></div>
+                    </div>
+                </div>
+                <div class="mdui-card">
+                    <div class="mdui-card-primary">
+                        <div class="mdui-card-primary-title">致站长</div>
+                    </div>
+                    <div class="mdui-card-content mdui-typo">
+                        <p>嗯，记住现在的自己，不要成为自己最讨厌的样子。</p>
+                    </div>
+                </div>
+            </div>
+            <div class="mdui-card">
+                <div class="mdui-card-actions like-info">
+                    <div class="mdui-text-color-theme-secondary">有12人觉得很赞，你也点个呗。</div>
+                    <div class="like-info-spacer"></div>
+                    <button class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon material-icons">favorite</i></button>
+                </div>
+                <div class="mdui-divider"></div>
+                <div class="mdui-card-primary">
+                    <div class="mdui-card-primary-title">评论</div>
+                </div>
+                <form class="mdui-card-content" action="#">
+                    <div class="mdui-textfield mdui-textfield-floating-label">
+                        <label class="mdui-textfield-label">内容</label>
+                        <textarea class="mdui-textfield-input" maxlength="600" required></textarea>
+                        <div class="mdui-textfield-error">内容是必须的</div>
+                        <div class="mdui-textfield-helper">支持 Markdown 语法</div>
+                    </div>
+                    <div class="mdui-row-xs-1 mdui-row-md-2">
+                        <div class="mdui-col mdui-textfield mdui-textfield-floating-label">
+                            <i class="mdui-icon material-icons">account_circle</i>
+                            <label class="mdui-textfield-label">昵称</label>
+                            <input class="mdui-textfield-input" maxlength="32" required />
+                            <div class="mdui-textfield-error">昵称是必须的</div>
+                        </div>
+                        <div class="mdui-col mdui-textfield mdui-textfield-floating-label">
+                            <i class="mdui-icon material-icons">email</i>
+                            <label class="mdui-textfield-label">Email</label>
+                            <input class="mdui-textfield-input" type="email" required />
+                            <div class="mdui-textfield-error">Email 是必须的</div>
+                            <div class="mdui-textfield-helper">可以在 Gavatar 设置头像</div>
+                        </div>
+                    </div>
+                </form>
+                <div class="mdui-card-actions">
+                    <button class="mdui-btn mdui-ripple mdui-text-color-theme-accent mdui-float-right">发表 <i class="mdui-icon material-icons">send</i></button>
+                </div>
+            </div>
+            <div class="waterfall">
+                <div class="mdui-card">
+                    <div class="mdui-card-header">
+                        <img class="mdui-card-header-avatar" src="covers/1.jpg" />
+                        <div class="mdui-card-header-title"><a class="mdui-text-color-theme-accent" href="mailto:dffzmxj@qq.com">学神之女</a></div>
+                        <div class="mdui-card-header-subtitle">2年前 · 127.0.0.1</div>
+                    </div>
+                    <div class="mdui-card-content mdui-typo">
+                        <p>看来没什么人回复呢……</p>
+                    </div>
+                    <div class="mdui-card-actions">
+                        <button class="mdui-btn mdui-btn-icon mdui-ripple mdui-float-right"><i class="mdui-icon material-icons">reply</i></button>
+                        <button class="mdui-btn mdui-ripple mdui-float-right">
+                            12 <i class="mdui-icon material-icons">thumb_up</i>
+                        </button>
+                    </div>
+                </div>
+                <div class="mdui-card">
+                    <div class="mdui-card-header">
+                        <img class="mdui-card-header-avatar" src="covers/6.jpg" />
+                        <div class="mdui-card-header-title"><a class="mdui-text-color-theme-accent">喵喵喵</a> <i class="mdui-icon material-icons">keyboard_arrow_right</i> <a class="mdui-text-color-theme-accent">学神之女</a></div>
+                        <div class="mdui-card-header-subtitle">2年前 · 192.168.1.100</div>
+                    </div>
+                    <div class="mdui-card-content mdui-typo">
+                        <p>打破1回复惨案~ 怎么会没人呢？</p>
+                    </div>
+                    <div class="mdui-card-actions">
+                        <button class="mdui-btn mdui-btn-icon mdui-ripple mdui-float-right"><i class="mdui-icon material-icons">reply</i></button>
+                        <button class="mdui-btn mdui-ripple mdui-float-right">
+                            59 <i class="mdui-icon material-icons">thumb_up</i>
+                        </button>
+                    </div>
+                </div>
+                <div class="mdui-card">
+                    <div class="mdui-card-header">
+                        <img class="mdui-card-header-avatar" src="covers/3.jpg" />
+                        <div class="mdui-card-header-title"><a class="mdui-text-color-theme-accent">Carlos2004</a></div>
+                        <div class="mdui-card-header-subtitle">3天前 · 45.12.68.160</div>
+                    </div>
+                    <div class="mdui-card-content mdui-typo">
+                        <p>来条回复！恭喜学神的学神录开源~</p>
+                        <p>时光荏苒，马上学神也是高中生了呢！</p>
+                        <p>听说河北中考分数在7月4日出来，学神对于高中，有没有什么确定的选择了呢？</p>
+                        <p>（声明：这是页面制作者模仿其语气编的话，不是他本人所发表的）</p>
+                    </div>
+                    <div class="mdui-card-actions">
+                        <button class="mdui-btn mdui-btn-icon mdui-ripple mdui-float-right"><i class="mdui-icon material-icons">reply</i></button>
+                        <button class="mdui-btn mdui-ripple mdui-float-right">
+                            97 <i class="mdui-icon material-icons">thumb_up</i>
+                        </button>
+                    </div>
+                </div>
+                <div class="mdui-card">
+                    <div class="mdui-card-header">
+                        <img class="mdui-card-header-avatar" src="covers/1.jpg" />
+                        <div class="mdui-card-header-title"><a class="mdui-text-color-theme-accent" href="mailto:dffzmxj@qq.com">学神之女</a> <i class="mdui-icon material-icons">keyboard_arrow_right</i> <a class="mdui-text-color-theme-accent">Carlos2004</a></div>
+                        <div class="mdui-card-header-subtitle">2天前 · 127.0.0.1</div>
+                    </div>
+                    <div class="mdui-card-content mdui-typo">
+                        <p>中考之后，像一个飞机一样，自己扎进了一片进路的乌云中，何去何从，很不明确……</p>
+                        <p>上至在本地重点、普通高中就读，下至在当地开小摊、发展农业，母亲乐观规划了很多平凡且稳定的进路，但……总之这些平凡的进路难以接受。</p>
+                        <p>希望在大范围（比如本省）找个综合看来最好的高中。综合来看？不仅考虑升学率与教育资源，也考虑其规章制度严格程度、管理者应对特殊情况的灵活性、住宿条件（是否住宿、宿舍规则）等。</p>
+                        <p>但情报渠道不足（母亲能从在相关学校就读的亲戚获得情报，自己基本只能听师长的二手情报，或在搜索引擎上找些残缺且可信度低的情报），未能搜集到这样的高中。</p>
+                        <p>母亲反对在市外上学，因为家中经济状况不佳，且自己可能没有足够的自理能力来适应高中的住宿生活。</p>
+                        <p>综合来看，感觉无高中可上，未来无路可走……</p>
+                        <p>（这个不是瞎编的，是真的。）</p>
+                    </div>
+                    <div class="mdui-card-actions">
+                        <button class="mdui-btn mdui-btn-icon mdui-ripple mdui-float-right"><i class="mdui-icon material-icons">reply</i></button>
+                        <button class="mdui-btn mdui-ripple mdui-float-right">
+                            2 <i class="mdui-icon material-icons">thumb_up</i>
+                        </button>
+                    </div>
+                </div>
+                <div class="mdui-card">
+                    <div class="mdui-card-header">
+                        <img class="mdui-card-header-avatar" src="covers/5.jpg" />
+                        <div class="mdui-card-header-title"><a class="mdui-text-color-theme-accent">纯碱不是碱。</a> <i class="mdui-icon material-icons">keyboard_arrow_right</i> <a class="mdui-text-color-theme-accent" href="mailto:dffzmxj@qq.com">学神之女</a></div>
+                        <div class="mdui-card-header-subtitle">2天前 · 100.12.69.65</div>
+                    </div>
+                    <div class="mdui-card-content mdui-typo">
+                        <p>你上一中就挺好的，真的。</p>
+                        <p>没高中能上……请不要凡尔赛了。</p>
+                        <p>（声明：以上回复是瞎编的）</p>
+                    </div>
+                    <div class="mdui-card-actions">
+                        <button class="mdui-btn mdui-btn-icon mdui-ripple mdui-float-right"><i class="mdui-icon material-icons">reply</i></button>
+                        <button class="mdui-btn mdui-ripple mdui-float-right">
+                            77 <i class="mdui-icon material-icons">thumb_up</i>
+                        </button>
+                    </div>
+                </div>
+                <div class="mdui-card">
+                    <div class="mdui-card-header">
+                        <img class="mdui-card-header-avatar" src="covers/1.jpg" />
+                        <div class="mdui-card-header-title"><a class="mdui-text-color-theme-accent" href="mailto:dffzmxj@qq.com">学神之女</a> <i class="mdui-icon material-icons">keyboard_arrow_right</i> <a class="mdui-text-color-theme-accent">纯碱不是碱。</a></div>
+                        <div class="mdui-card-header-subtitle">2天前 · 127.0.0.1</div>
+                    </div>
+                    <div class="mdui-card-content mdui-typo">
+                        <p>一中也能叫高中……严格来讲，还确实是这样……</p>
+                        <p>但也感觉不是这样……</p>
+                    </div>
+                    <div class="mdui-card-actions">
+                        <button class="mdui-btn mdui-btn-icon mdui-ripple mdui-float-right"><i class="mdui-icon material-icons">reply</i></button>
+                        <button class="mdui-btn mdui-ripple mdui-float-right">
+                            1 <i class="mdui-icon material-icons">thumb_up</i>
+                        </button>
+                    </div>
+                </div>
+                <div class="mdui-card">
+                    <div class="mdui-card-header">
+                        <img class="mdui-card-header-avatar" src="covers/6.jpg" />
+                        <div class="mdui-card-header-title"><a class="mdui-text-color-theme-accent">银河系谢谢</a> <i class="mdui-icon material-icons">keyboard_arrow_right</i> <a class="mdui-text-color-theme-accent">Carlos2004</a></div>
+                        <div class="mdui-card-header-subtitle">23小时前 · 234.34.1.23</div>
+                    </div>
+                    <div class="mdui-card-content mdui-typo">
+                        <p>夜宵以前，来杯枸杞泡可乐，赛高。</p>
+                    </div>
+                    <div class="mdui-card-actions">
+                        <button class="mdui-btn mdui-btn-icon mdui-ripple mdui-float-right"><i class="mdui-icon material-icons">reply</i></button>
+                        <button class="mdui-btn mdui-ripple mdui-float-right">
+                            <i class="mdui-icon material-icons">thumb_up</i>
+                        </button>
+                    </div>
+                </div>
+                <div class="mdui-card">
+                    <div class="mdui-card-header">
+                        <img class="mdui-card-header-avatar" src="covers/6.jpg" />
+                        <div class="mdui-card-header-title"><a class="mdui-text-color-theme-accent">银河系谢谢</a> <i class="mdui-icon material-icons">keyboard_arrow_right</i> <a class="mdui-text-color-theme-accent" href="mailto:dffzmxj@qq.com">学神之女</a></div>
+                        <div class="mdui-card-header-subtitle">23小时前 · 234.34.1.23</div>
+                    </div>
+                    <div class="mdui-card-content mdui-typo">
+                        <p>飞机摇身一变，变成了航天飞机，飞到了M78星云。</p>
+                    </div>
+                    <div class="mdui-card-actions">
+                        <button class="mdui-btn mdui-btn-icon mdui-ripple mdui-float-right"><i class="mdui-icon material-icons">reply</i></button>
+                        <button class="mdui-btn mdui-ripple mdui-float-right">
+                            <i class="mdui-icon material-icons">thumb_up</i>
+                        </button>
+                    </div>
+                </div>
+                <div class="mdui-card">
+                    <div class="mdui-card-header">
+                        <img class="mdui-card-header-avatar" src="covers/6.jpg" />
+                        <div class="mdui-card-header-title"><a class="mdui-text-color-theme-accent">银河系谢谢</a> <i class="mdui-icon material-icons">keyboard_arrow_right</i> <a class="mdui-text-color-theme-accent">纯碱不是碱。</a></div>
+                        <div class="mdui-card-header-subtitle">23小时前 · 234.34.1.23</div>
+                    </div>
+                    <div class="mdui-card-content mdui-typo">
+                        <p>我上一次买彩票，中了2万，号码是7355608，你也买一张呗。</p>
+                    </div>
+                    <div class="mdui-card-actions">
+                        <button class="mdui-btn mdui-btn-icon mdui-ripple mdui-float-right"><i class="mdui-icon material-icons">reply</i></button>
+                        <button class="mdui-btn mdui-ripple mdui-float-right">
+                            <i class="mdui-icon material-icons">thumb_up</i>
+                        </button>
+                    </div>
+                </div>
+                <div class="mdui-card">
+                    <div class="mdui-card-header">
+                        <img class="mdui-card-header-avatar" src="covers/1.jpg" />
+                        <div class="mdui-card-header-title"><a class="mdui-text-color-theme-accent" href="mailto:dffzmxj@qq.com">学神之女</a></div>
+                        <div class="mdui-card-header-subtitle">2小时前 · 127.0.0.1</div>
+                    </div>
+                    <div class="mdui-card-content mdui-typo">
+                        <p>最后还是选择一中，别无选择……</p>
+                    </div>
+                    <div class="mdui-card-actions">
+                        <button class="mdui-btn mdui-btn-icon mdui-ripple mdui-float-right"><i class="mdui-icon material-icons">reply</i></button>
+                        <button class="mdui-btn mdui-ripple mdui-float-right">
+                            <i class="mdui-icon material-icons">thumb_up</i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="mdui-fab mdui-fab-fixed mdui-color-theme-accent mdui-ripple" id="edit"><i class="mdui-icon material-icons">edit</i></button>
+        <script
+            src="https://cdn.jsdelivr.net/npm/mdui@1.0.1/dist/js/mdui.min.js"
+            integrity="sha384-gCMZcshYKOGRX9r6wbDrvF+TcCCswSHFucUzUPwka+Gr+uHgjlYvkABr95TCOz3A"
+            crossorigin="anonymous"
+        ></script>
+        <script>
+            //会动的 FAB 和会变色的 appbar
+            const fab = document.getElementById("edit");
+            const appbar = document.querySelector(".mdui-appbar");
+            const toolbar = document.querySelector(".mdui-toolbar");
+            function changeFABandAppbar() {
+                if(document.querySelector(".banner").offsetHeight - scrollY < appbar.offsetHeight) {
+                    appbar.classList.remove("mdui-shadow-0");
+                    toolbar.classList.add("mdui-color-theme");
+                    fab.classList.add("scrolled-over");
+                } else {
+                    appbar.classList.add("mdui-shadow-0");
+                    toolbar.classList.remove("mdui-color-theme");
+                    fab.classList.remove("scrolled-over");
+                }
+            }
+            addEventListener("scroll", changeFABandAppbar);
+            addEventListener("resize", changeFABandAppbar);
+            changeFABandAppbar();
+            //跳转编辑页
+            fab.addEventListener("click", () => mdui.prompt(
+                "同学录密码",
+                "访问学神之女的同学录（暂不支持WebAuthn，密码为123456）",
+                password => password === "123456" ? (location.href = "edit.html") : mdui.snackbar("密码错误"),
+                () => {},
+                { history: false }
+            ));
+        </script>
+    </body>
+</html>

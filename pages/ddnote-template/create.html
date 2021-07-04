@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+        <title>创建 - 学神录</title>
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/mdui@1.0.1/dist/css/mdui.min.css"
+            integrity="sha384-cLRrMq39HOZdvE0j6yBojO4+1PrHfB7a9l5qLcmRm/fiWXYY+CndJPmyu5FV/9Tw"
+            crossorigin="anonymous"
+        />
+        <style>
+            .banner {
+                height: 50vh;
+                background: url(miku.jpg);
+                background-size: cover;
+                transition: height .3s ease;
+            }
+            .info {
+                max-width: 680px;
+                width: 95%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                margin: 0 auto;
+                margin-top: -20vh;
+                margin-bottom: 32px;
+            }
+            .info > div {
+                width: 100%;
+                margin-top: 12px;
+            }
+            .info .mdui-card-media > img {
+                max-height: 400px;
+                min-height: 200px;
+                object-fit: cover;
+            }
+            @media (max-width: 720px) {
+                .banner {
+                    height: 75vh;
+                }
+                .info {
+                    margin-top: -50vh;
+                }
+            }
+            .waterfall {
+                columns: auto 300px;
+            }
+            .waterfall > div {
+                break-inside: avoid;
+            }
+            .waterfall > div+div {
+                margin-top: 12px;
+            }
+            .cover-address {
+                display: flex;
+                align-items: center;
+            }
+            .cover-address > .mdui-textfield {
+                flex: 1 1;
+            }
+            .info .mdui-card-media > img {
+                max-height: 400px;
+                min-height: 200px;
+                object-fit: cover;
+            }
+            .upload-button {
+                display: block;
+                width: 48px;
+                min-width: 48px;
+                height: 48px;
+                background-color: rgba(0, 0, 0, .26)!important;
+            }
+            .upload-button > i {
+                color: white!important;
+                opacity: .9;
+            }
+            .collapse-wrapper {
+                overflow: hidden;
+            }
+            .collapse-wrapper > div {
+                margin-top: var(--negative-element-height);
+                transition: margin-top .3s ease;
+                box-sizing: border-box;
+            }
+            .collapse-wrapper.expanded > div {
+                margin-top: 0;
+            }
+            .textfield-needs-margin, .birthday-section {
+                margin: 0 16px; /*使用 padding 的话，会因为覆盖 .mdui-textfield 的 padding 设定，导致错版。*/
+            }
+            .birthday-section {
+                display: flex;
+                align-items: center;
+            }
+            .birthday-section > div {
+                flex-basis: 60px;
+            }
+            .birthday-section > :first-child {
+                flex: 1 1;
+            }
+            .birthday-section > div~div {
+                margin-left: 8px;
+            }
+            .question {
+                font-weight: 500;
+                font-size: 20px;
+                letter-spacing: .02em;
+                line-height: 24px;
+                font-family: Roboto, Noto, Helvetica, Arial, sans-serif;
+                padding: 0;
+                border: none;
+                flex: 1 1;
+                outline: none;
+            }
+            .question::placeholder {
+                color: rgba(0, 0, 0, .54);
+            }
+            .question-row {
+                display: flex;
+                align-items: center;
+            }
+            .mdui-textfield {
+                overflow: visible;
+            }
+            .mdui-textfield-helper {
+                overflow: visible;
+                white-space: initial;
+                text-overflow: initial;
+                height: auto;
+                padding-right: 48px;
+                box-sizing: border-box;
+                top: 78px;
+            }
+            .mdui-textfield > textarea~.mdui-textfield-helper {
+                top: initial;
+            }
+            .mdui-btn {
+                display: inline-flex;
+                align-items: center;
+            }
+            .mdui-btn > .mdui-spinner {
+                height: 18px;
+                width: 18px;
+            }
+            .covered {
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                z-index: 99999; /*MDUI 组件的 z-index 都很高，所以这个也得设置得更高……*/
+                display: none;
+                opacity: 0;
+                justify-content: center;
+                align-items: center;
+                background: rgba(255, 255, 255, .6);
+            }
+            .covered .mdui-spinner {
+                height: 72px;
+                width: 72px;
+            }
+            .covered .mdui-spinner .mdui-spinner-circle {
+                border-width: 6px;
+            }
+            .covered.display {
+                display: flex;
+                opacity: 1;
+            }
+            .mdui-fab-fixed {
+                bottom: initial;
+                top: calc(100vh - 16px);
+                transform: translateY(-100%);
+            }
+            @media screen and (min-width: 1024px) {
+                .mdui-fab-fixed:not(.scrolled-over) {
+                    top: 50vh;
+                    right: 64px;
+                    transform: translateY(-50%);
+                    margin: 0;
+                    position: absolute!important;
+                }
+                .mdui-fab-fixed {
+                    top: calc(100% - 24px);
+                }
+            }
+            .mdui-appbar, .mdui-toolbar {
+                transition: .2s ease;
+            }
+            .mdui-appbar {
+                transition-property: box-shadow;
+            }
+            .mdui-toolbar {
+                transition-property: background;
+            }
+        </style>
+    </head>
+    <body class="mdui-theme-primary-teal mdui-theme-accent-green">
+        <aside class="covered" id="web-cover">
+            <div class="mdui-spinner mdui-spinner-colorful"></div>
+        </aside>
+        <header class="mdui-appbar mdui-appbar-fixed mdui-shadow-0">
+            <nav class="mdui-toolbar mdui-text-color-white">
+                <a href="index.html" class="mdui-btn mdui-btn-icon mdui-ripple">
+                    <i class="mdui-icon material-icons">close</i>
+                </a>
+                <div class="mdui-typo-title">创建新同学录</div>
+                <div class="mdui-toolbar-spacer"></div>
+                <button class="mdui-btn mdui-btn-icon mdui-ripple">
+                    <i class="mdui-icon material-icons">save</i>
+                </button>
+                <button class="mdui-btn mdui-btn-icon mdui-ripple">
+                    <i class="mdui-icon material-icons">cached</i>
+                </button>
+            </nav>
+        </header>
+        <div class="banner"></div>
+        <div class="info">
+            <div class="mdui-card">
+                <div class="mdui-card-media">
+                    <img src="covers/6.jpg" />
+                    <div class="mdui-card-menu">
+                        <button class="mdui-btn mdui-btn-icon upload-button mdui-ripple">
+                            <i class="mdui-icon material-icons">photo_camera</i>
+                        </button>
+                    </div>
+                </div>
+                <div class="mdui-row-xs-1 mdui-row-md-2 textfield-needs-margin">
+                    <div class="mdui-col mdui-textfield mdui-textfield-floating-label">
+                        <label class="mdui-textfield-label">昵称</label>
+                        <input class="mdui-textfield-input" id="nickname" maxlength="32" required />
+                        <div class="mdui-textfield-error">昵称是必须的</div>
+                    </div>
+                    <div class="mdui-col mdui-textfield mdui-textfield-floating-label">
+                        <label class="mdui-textfield-label">真实姓名</label>
+                        <input class="mdui-textfield-input" maxlength="32" required />
+                        <div class="mdui-textfield-error">真实姓名是必须的</div>
+                    </div>
+                </div>
+                <div class="textfield-needs-margin mdui-textfield mdui-textfield-floating-label">
+                    <i class="mdui-icon material-icons">loyalty</i>
+                    <label class="mdui-textfield-label">座右铭</label>
+                    <input class="mdui-textfield-input" maxlength="144" required />
+                    <div class="mdui-textfield-error">座右铭是必须的</div>
+                </div>
+                <label class="mdui-list-item mdui-ripple">
+                    <i class="mdui-list-item-icon mdui-icon material-icons">lock</i>
+                    <div class="mdui-list-item-content">隐藏真实姓名</div>
+                    <div class="mdui-switch">
+                        <input type="checkbox" />
+                        <i class="mdui-switch-icon"></i>
+                    </div>
+                </label>
+            </div>
+            <div class="waterfall">
+                <div class="mdui-card">
+                    <div class="mdui-card-primary">
+                        <div class="mdui-card-primary-title">基本信息</div>
+                    </div>
+                    <div class="mdui-subheader">出生日期</div>
+                    <div id="birthday-section" class="birthday-section">
+                        <div class="mdui-textfield mdui-textfield-floating-label">
+                            <i class="mdui-icon material-icons">cake</i>
+                            <label class="mdui-textfield-label">年</label>
+                            <input class="mdui-textfield-input" type="number" required />
+                            <div class="mdui-textfield-error">年是必须的</div>
+                        </div>
+                        <div class="mdui-textfield mdui-textfield-floating-label">
+                            <label class="mdui-textfield-label">月</label>
+                            <input class="mdui-textfield-input" type="number" required />
+                            <div class="mdui-textfield-error">月是必须的</div>
+                        </div>
+                        <div class="mdui-textfield mdui-textfield-floating-label">
+                            <label class="mdui-textfield-label">日</label>
+                            <input class="mdui-textfield-input" type="number" required />
+                            <div class="mdui-textfield-error">日是必须的</div>
+                        </div>
+                    </div>
+                    <label class="mdui-list-item mdui-ripple">
+                        <i class="mdui-list-item-icon mdui-icon material-icons">date_range</i>
+                        <div class="mdui-list-item-content">使用农历而不是公历</div>
+                        <div class="mdui-switch">
+                            <input type="checkbox" id="toggle-calendar" />
+                            <i class="mdui-switch-icon"></i>
+                        </div>
+                    </label>
+                    <div class="mdui-m-a-2 mdui-typo-caption-opacity">受转换算法限制，使用农历时，生日必须在1901年到2100年间。如果你过阴历、阳历等其它历法的生日，很抱歉不能支持（要是你认为，阴历就是农历，阳历就是公历，无视这句话）。</div>
+                    <label class="mdui-list-item mdui-ripple">
+                        <i class="mdui-list-item-icon mdui-icon material-icons">lock</i>
+                        <div class="mdui-list-item-content">隐藏生日</div>
+                        <div class="mdui-switch">
+                            <input type="checkbox" />
+                            <i class="mdui-switch-icon"></i>
+                        </div>
+                    </label>
+                    <div class="mdui-textfield mdui-textfield-floating-label textfield-needs-margin">
+                        <i class="mdui-icon material-icons">location_city</i>
+                        <label class="mdui-textfield-label">地址</label>
+                        <input class="mdui-textfield-input" maxlength="60" required />
+                        <div class="mdui-textfield-error">地址是必须的</div>
+                        <div class="mdui-textfield-helper">国家城市、物理地址、IP地址、网址……总之是个“地址”就行</div>
+                    </div>
+                    <div class="mdui-textfield mdui-textfield-floating-label textfield-needs-margin">
+                        <i class="mdui-icon material-icons">email</i>
+                        <label class="mdui-textfield-label">Email</label>
+                        <input class="mdui-textfield-input" type="email" maxlength="320" required />
+                        <div class="mdui-textfield-error">Email 是必须的</div>
+                    </div>
+                    <div class="mdui-list"><!--想要在里边用label元素作为list item，所以用ul似乎不太合适-->
+                        <!--<div></div>-->
+                        <div class="mdui-subheader">性别</div>
+                        <label class="mdui-list-item mdui-ripple">
+                            <i class="mdui-list-item-icon mdui-icon"><img src="gender-female.svg" alt="女"/></i>
+                            <div class="mdui-list-item-content mdui-text-color-pink-accent">女性</div>
+                            <div class="mdui-radio">
+                                <input type="radio" checked name="gender" />
+                                <i class="mdui-radio-icon"></i>
+                            </div>
+                        </label>
+                        <label class="mdui-list-item mdui-ripple">
+                            <i class="mdui-list-item-icon mdui-icon"><img src="gender-male.svg" alt="女"/></i>
+                            <div class="mdui-list-item-content mdui-text-color-blue-accent">男性</div>
+                            <div class="mdui-radio">
+                                <input type="radio" name="gender"/>
+                                <i class="mdui-radio-icon"></i>
+                            </div>
+                        </label>
+                        <label class="mdui-list-item mdui-ripple">
+                            <i class="mdui-list-item-icon mdui-icon"><img src="gender-other.svg" alt="女"/></i>
+                            <div class="mdui-list-item-content mdui-text-color-orange-accent">非二元</div>
+                            <div class="mdui-radio">
+                                <input type="radio" name="gender"/>
+                                <i class="mdui-radio-icon"></i>
+                            </div>
+                        </label>
+                        <label class="mdui-list-item mdui-ripple">
+                            <i class="mdui-list-item-icon mdui-icon material-icons">block</i>
+                            <div class="mdui-list-item-content">不透露</div>
+                            <div class="mdui-radio">
+                                <input type="radio" name="gender"/>
+                                <i class="mdui-radio-icon"></i>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+                <div class="mdui-card">
+                    <div class="mdui-card-primary">
+                        <div class="mdui-card-primary-title">形象关键词</div>
+                    </div>
+                    <div class="mdui-card-content">
+                        <div class="mdui-textfield mdui-textfield-floating-label">
+                            <i class="mdui-icon material-icons">label</i>
+                            <label class="mdui-textfield-label">形象关键词</label>
+                            <input class="mdui-textfield-input" id="image-keyword" />
+                            <div class="mdui-textfield-helper">以半角逗号“,”为分隔符</div>
+                        </div>
+                        <div id="preview">你还没有设置任何形象关键词。</div>
+                    </div>
+                    <div class="mdui-m-a-2 mdui-typo-caption-opacity">如果没有设置形象关键词，在你的同学录页，不会显示“形象关键词”这一卡片。</div>
+                    <div class="collapse-wrapper" id="warning">
+                        <div class="mdui-card-content mdui-color-orange-100">
+                            <div class="mdui-typo-title mdui-m-b-2 mdui-text-color-orange-accent"><i class="mdui-icon material-icons">warning</i> 注意</div>
+                            为了显示起来美观，不建议设置超过12个形象关键词，且每个形象关键词不建议超过16个汉字（1个全角字符按1个汉字算，1个半角字符按半个汉字算）。
+                        </div>
+                    </div>
+                </div>
+                <div class="mdui-card">
+                    <div class="mdui-card-primary">
+                        <div class="mdui-card-primary-title">自由介绍</div>
+                    </div>
+                    <div class="mdui-textfield mdui-textfield-floating-label textfield-needs-margin">
+                        <label class="mdui-textfield-label">自由介绍</label>
+                        <textarea class="mdui-textfield-input" maxlength="32767"></textarea>
+                        <div class="mdui-textfield-helper">支持换行，支持 Markdown 语法</div>
+                    </div>
+                </div>
+                <div class="mdui-card" id="questions">
+                    <div class="mdui-card-header">
+                        <div class="mdui-card-primary-title">
+                            问答如流
+                            <button id="add-question" class="mdui-btn mdui-btn-icon mdui-ripple mdui-float-right"><i class="mdui-icon material-icons">add</i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="mdui-card">
+                    <div class="mdui-card-primary">
+                        <div class="mdui-card-primary-title">致站长</div>
+                    </div>
+                    <div class="mdui-textfield mdui-textfield-floating-label textfield-needs-margin">
+                        <label class="mdui-textfield-label">想对站长说的一些话</label>
+                        <textarea class="mdui-textfield-input" maxlength="32767"></textarea>
+                        <div class="mdui-textfield-helper">支持换行，支持 Markdown 语法</div>
+                    </div>
+                    <label class="mdui-list-item mdui-ripple">
+                        <i class="mdui-list-item-icon mdui-icon material-icons">lock</i>
+                        <div class="mdui-list-item-content">隐藏对站长的话</div>
+                        <div class="mdui-switch">
+                            <input type="checkbox" />
+                            <i class="mdui-switch-icon"></i>
+                        </div>
+                    </label>
+                </div>
+                <div class="mdui-card">
+                    <div class="mdui-card-primary">
+                        <div class="mdui-card-primary-title">安全与隐私</div>
+                    </div>
+                    <div class="mdui-textfield mdui-textfield-floating-label textfield-needs-margin">
+                        <label class="mdui-textfield-label">同学录密码</label>
+                        <input class="mdui-textfield-input" type="password" required />
+                        <div class="mdui-textfield-helper">凭密码可修改自己的同学录</div>
+                    </div>
+                    <label class="mdui-list-item mdui-ripple">
+                        <i class="mdui-list-item-icon mdui-icon material-icons">lock</i>
+                        <div class="mdui-list-item-content">隐藏整个同学录</div>
+                        <div class="mdui-switch">
+                            <input type="checkbox" />
+                            <i class="mdui-switch-icon"></i>
+                        </div>
+                    </label>
+                    <div class="mdui-list-item">
+                        <i class="mdui-list-item-icon mdui-icon material-icons">vpn_key</i>
+                        <div class="mdui-list-item-content">WebAuthn</div>
+                        <button id="register-webauthn" class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-theme-accent">为此设备启用</button>
+                    </div>
+                    <div class="mdui-m-a-2 mdui-typo-caption-opacity">WebAuthn 是种比密码更安全的身份验证方式，可以允许你用指纹、面部识别或其它安全介质代替密码。</div>
+                </div>
+            </div>
+        </div>
+        <button class="mdui-fab mdui-fab-fixed mdui-color-theme-accent mdui-ripple" id="publish"><i class="mdui-icon material-icons">done</i></button>
+        <template id="gregorian-calendar">
+            <div class="mdui-textfield mdui-textfield-floating-label">
+                <i class="mdui-icon material-icons">cake</i>
+                <label class="mdui-textfield-label">年</label>
+                <input class="mdui-textfield-input" type="number" required />
+                <div class="mdui-textfield-error">年是必须的</div>
+            </div>
+            <div class="mdui-textfield mdui-textfield-floating-label">
+                <label class="mdui-textfield-label">月</label>
+                <input class="mdui-textfield-input" type="number" required />
+                <div class="mdui-textfield-error">月是必须的</div>
+            </div>
+            <div class="mdui-textfield mdui-textfield-floating-label">
+                <label class="mdui-textfield-label">日</label>
+                <input class="mdui-textfield-input" type="number" required />
+                <div class="mdui-textfield-error">日是必须的</div>
+            </div>
+        </template>
+        <template id="lunar-calendar">
+            <div class="mdui-textfield mdui-textfield-floating-label">
+                <i class="mdui-icon material-icons">cake</i>
+                <label class="mdui-textfield-label">年</label>
+                <input class="mdui-textfield-input" min="1901" max="2100" type="number" required />
+                <div class="mdui-textfield-error">年是必须的</div>
+            </div>
+            <!--月和日太多，用JS动态添加-->
+            <select class="mdui-select" mdui-select></select>
+            <select class="mdui-select" mdui-select></select>
+        </template>
+        <template id="question">
+            <div class="mdui-card-content">
+                <div class="question-row">
+                    <input class="question" placeholder="写下你的问题..." maxlength="51" />
+                    <button class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon material-icons">casino</i></button>
+                    <button class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon material-icons">close</i></button>
+                </div>
+                <div class="mdui-textfield mdui-textfield-floating-label">
+                    <label class="mdui-textfield-label">问题解答</label>
+                    <textarea class="mdui-textfield-input" maxlength="8192"></textarea>
+                    <div class="mdui-textfield-helper">支持换行，支持 Markdown 语法</div>
+                </div>
+            </div>
+        </template>
+        <template id="register-webauthn-loading-state">
+            <div class="mdui-spinner"></div>
+            启用中
+        </template>
+        <script
+            src="https://cdn.jsdelivr.net/npm/mdui@1.0.1/dist/js/mdui.min.js"
+            integrity="sha384-gCMZcshYKOGRX9r6wbDrvF+TcCCswSHFucUzUPwka+Gr+uHgjlYvkABr95TCOz3A"
+            crossorigin="anonymous"
+        ></script>
+        <script>
+            //形象关键词
+            const preview = document.getElementById("preview");
+            const warning = document.getElementById("warning");
+            document.getElementById("image-keyword").addEventListener('input', ({target}) => {
+                warning.classList.remove("expanded");
+                const keywords = target.value.split(',').map(keyword => keyword.trim()).filter(keyword => keyword);
+                if(keywords.length > 12) warning.classList.add("expanded");
+                if(keywords.length) {
+                    preview.innerHTML = "";
+                    for(const keyword of keywords) {
+                        if(keyword.length > 16) warning.classList.add("expanded");
+                        const chip = document.createElement('div');
+                        chip.classList.add("mdui-chip", "mdui-color-theme-50", "mdui-text-color-theme");
+                        const chipTitle = document.createElement('span');
+                        chipTitle.innerText = keyword;
+                        chipTitle.classList.add("mdui-chip-title");
+                        chip.append(chipTitle);
+                        preview.append(chip);
+                    }
+                } else
+                    preview.innerText = "你还没有设置任何形象关键词。";
+            });
+            addEventListener("resize", () => warning.children[0].style.setProperty("--negative-element-height", "-" + getComputedStyle(warning.children[0]).height));
+            dispatchEvent(new Event("resize"));
+            //历法切换
+            const gregorianCalendar = document.getElementById("gregorian-calendar").content;
+            const lunarCalendar = document.getElementById("lunar-calendar").content;
+            lunarCalendar.querySelector("select:first-of-type").append(..."正二三四五六七八九十冬腊".split("").map(month => {
+                const option = document.createElement("option");
+                option.value = option.innerText = month + "月";
+                return option;
+            }));
+            lunarCalendar.querySelector("select:last-of-type").append(...[
+                ..."一二三四五六七八九十".split("").map(day => "初" + day),
+                ..."一二三四五六七八九".split("").map(day => "十" + day),
+                "二十",
+                ..."一二三四五六七八九".split("").map(day => "廿" + day),
+                "三十"
+            ].map(day => {
+                const option = document.createElement("option");
+                option.value = option.innerText = day;
+                return option;
+            }));
+            document.getElementById("toggle-calendar").addEventListener("change", ({ target: { checked } }) => {
+                const birthdaySection = document.getElementById("birthday-section");
+                birthdaySection.innerHTML = "";
+                birthdaySection.append(document.importNode(checked ? lunarCalendar : gregorianCalendar, true));
+                mdui.mutation();
+            });
+            //增减问题
+            const questions = [
+                "最近一次考试成绩怎么样？", //有亿点扎心
+                "最得意的一次作文是什么？",
+                "细说一下，你有没有打心底敬佩的人？",
+                "在你看来，活着的意义是什么？",
+                "已经确定，前往好学校，只能成为“凤尾”，前往次一级的学校，无疑能做“鸡头”，如何选择？",
+                "在学神录发同学录是一种怎样的体验？",
+                "学龄前/学生族/上班族/无业者/退休...的你处于一个怎样的状态？",
+                "你相对尴尬的一个经历是如何的？",
+                "如何看待学神录设置的随机问题？",
+                "若哆啦A梦的上千个秘密道具中能给你一个，你选择哪个（四次元百宝袋中不含其它道具）？",
+                "若《性转传染病》中的病毒成真，是好事还是坏事？",
+                "如何看待本站站长？"
+            ];//实际会从服务器获取，但这里就直接读数组了。
+            document.getElementById("add-question").addEventListener("click", () => {
+                const question = document.importNode(document.getElementById("question").content.children[0], true);
+                question.querySelector("button:first-of-type").addEventListener("click", ({currentTarget}) => currentTarget.parentNode.children[0].value = questions[Math.round(
+                    Math.random() * (questions.length - 1)
+                )]);
+                question.querySelector("button:last-of-type").addEventListener("click", ({currentTarget}) => {
+                    question.previousElementSibling.matches(".mdui-divider") ?
+                    question.previousElementSibling.remove() :
+                    question.nextElementSibling?.remove();
+                    question.remove();
+                });
+                const questionContainer = document.getElementById("questions");
+                if(questionContainer.querySelector(".mdui-card-content")) {
+                    const divider = document.createElement("div");
+                    divider.classList.add("mdui-divider");
+                    questionContainer.append(divider);
+                }
+                questionContainer.append(question);
+                mdui.mutation();
+            });
+            //注册 WebAuthn
+            const publicKey = {
+                challenge: Uint8Array.from(
+                    'jfoaweifjoweifjweiorweafwefwefew', c => c.charCodeAt(0)),
+                rp: {
+                    name: "学神录",
+                    //id: "mdui.org"
+                },
+                user: {
+                    id: Uint8Array.from(
+                        "UZSL85T9AFC", c => c.charCodeAt(0)),
+                    name: document.getElementById("nickname").value,
+                    displayName: document.getElementById("nickname").value
+                },
+                pubKeyCredParams: [{alg: -7, type: "public-key"}, {alg: -257, type: "public-key"}],
+                authenticatorSelection: {
+                    //authenticatorAttachment: "platform",
+                },
+                timeout: 60000,
+                attestation: "direct"
+            };
+            const webauthnRegisterButton = document.getElementById("register-webauthn");
+            const loadingWebauthnRegisterButton = document.getElementById("register-webauthn-loading-state").content;
+            webauthnRegisterButton.addEventListener("click", () => {
+                webauthnRegisterButton.innerHTML = "";
+                webauthnRegisterButton.append(document.importNode(loadingWebauthnRegisterButton, true));
+                webauthnRegisterButton.classList.remove("mdui-btn-raised", "mdui-color-theme-accent");
+                webauthnRegisterButton.setAttribute("disabled", "disabled");
+                mdui.mutation();
+                navigator?.credentials?.create({ publicKey }).then(
+                    () => webauthnRegisterButton.innerText = "已启用",
+                    error => {
+                        webauthnRegisterButton.innerText = "为此设备启用";
+                        webauthnRegisterButton.removeAttribute("disabled");
+                        webauthnRegisterButton.classList.add("mdui-btn-raised", "mdui-color-theme-accent");
+                        mdui.snackbar("此平台不支持 WebAuthn");
+                        console.error(error);
+                    }
+                );
+            });
+            //假装发布
+            const webapgeCover = document.getElementById("web-cover");
+            const fab = document.getElementById("publish");
+            fab.addEventListener("click", async () => {
+                webapgeCover.classList.add("display");
+                await new Promise(resolve => webapgeCover.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 700, easing: "cubic-bezier(0, 1, 0.2, 1)" }).onfinish = resolve);
+                await new Promise(resolve => setTimeout(resolve, Math.random() * 3000));
+                await new Promise(resolve => webapgeCover.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 700, easing: "cubic-bezier(0, 1, 0.2, 1)" }).onfinish = resolve);
+                webapgeCover.classList.remove("display")
+            });
+            //会动的 FAB 和会变色的 appbar
+            const appbar = document.querySelector(".mdui-appbar");
+            const toolbar = document.querySelector(".mdui-toolbar");
+            function changeFABandAppbar() {
+                if(document.querySelector(".banner").offsetHeight - scrollY < appbar.offsetHeight) {
+                    appbar.classList.remove("mdui-shadow-0");
+                    toolbar.classList.add("mdui-color-theme");
+                    fab.classList.add("scrolled-over");
+                } else {
+                    appbar.classList.add("mdui-shadow-0");
+                    toolbar.classList.remove("mdui-color-theme");
+                    fab.classList.remove("scrolled-over");
+                }
+            }
+            addEventListener("scroll", changeFABandAppbar);
+            addEventListener("resize", changeFABandAppbar);
+            changeFABandAppbar();
+        </script>
+    </body>
+</html>
